@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blockfisher</title>
+  <meta name="description" content="Blockfisher spots the phish before you bite, and follows the trail when you've been caught.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,520;1,9..144,520&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script>
+    try {
+      var saved = localStorage.getItem("blockfisher-theme");
+      if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Blockfisher home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M8 20c0-6 4-10 10-10 4 0 6 2 6 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M22 11c2 1 4 3 4 6 0 2-1.2 3.2-2.8 3.2-1.4 0-2.4-1-2.4-2.2" fill="none" stroke="#3c7dff" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="22.2" cy="15.2" r="1.2" fill="#3c7dff"/>
+        </svg>
+        Blockfisher
+      </a>
+      <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <div class="dropdown">
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="scanner-menu">Scanners</button>
+          <div class="dropdown-panel" id="scanner-menu">
+            <a href="token.html"><strong>Token scanner</strong><span>Can this token trap a sale or change its own rules?</span></a>
+            <a href="wallet.html"><strong>Wallet scanner</strong><span>Has this address touched a drainer or a known scam?</span></a>
+            <a href="#defi"><strong>DeFi app scanner</strong><span>Does the site match the contracts it asks you to sign?</span></a>
+            <a href="#chain"><strong>Blockchain scanner</strong><span>Is the chain, bridge, or client showing a known fault?</span></a>
+            <a href="#portfolio"><strong>Portfolio scanner</strong><span>Which positions changed risk since you last looked?</span></a>
+          </div>
+        </div>
+        <a href="docs.html">Documentation</a>
+        <a href="#extension">Token extension</a>
+        <a class="nav-book" href="#book">Book an investigation</a>
+      </nav>
+      <div class="header-actions">
+        <button class="text-button" type="button" data-open="signin">Sign in</button>
+        <button class="icon-button" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light colours">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 1.5v2.2M9 14.3v2.2M1.5 9h2.2M14.3 9h2.2M3.4 3.4l1.6 1.6M13 13l1.6 1.6M14.6 3.4 13 5M5 13l-1.6 1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <a class="primary book" href="#book">Book an investigation</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="wrap hero-grid hero-grid--solo">
+        <div class="hero-copy">
+          <p class="kicker">Five scanners. One investigator.</p>
+          <h1>Blockfisher spots the <em>phish</em> before you bite, and follows the <em>trail</em> when you've been caught.</h1>
+          <p class="lede">Check a token, a wallet, a DeFi app, a chain, or a portfolio before you sign. If the money has already moved, book a person to follow it.</p>
+          <div class="sale-row" aria-label="What you can use">
+            <a href="token.html">Token scanner</a>
+            <a href="wallet.html">Wallet scanner</a>
+            <a href="#defi">DeFi app scanner</a>
+            <a href="#chain">Blockchain scanner</a>
+            <a href="#portfolio">Portfolio scanner</a>
+          </div>
+          <div class="hero-actions">
+            <a class="primary" href="#scanners">See the scanners</a>
+            <a class="text-button" href="#extension">Get the token scanner extension</a>
+          </div>
+          <p class="prototype-note">Token scanner, wallet scanner, and the token scanner extension are on this site. The other three scanners are still designs.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="scanners">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>What is for sale</h2>
+          <p>Every scanner is listed here. You do not have to hover a menu to find out the others exist.</p>
+        </div>
+        <div class="cards">
+          <article class="card" id="token">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="14" fill="none" stroke="#3c7dff" stroke-width="2"/><path d="M24 14v20M18 20h8a4 4 0 0 1 0 8h-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <h3>Token scanner</h3>
+            <p>Paste a token address. See if a sale can be paused, if supply can be minted, or if an owner can rewrite the rules.</p>
+            <p class="card-open"><a href="token.html">Open the token scanner</a></p>
+          </article>
+          <article class="card" id="wallet">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="14" width="32" height="22" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h32" stroke="#3c7dff" stroke-width="2"/><circle cx="32" cy="28" r="2" fill="#3c7dff"/></svg>
+            <h3>Wallet scanner</h3>
+            <p>Paste a public address. See if it has touched a drainer, a known scam, or a cluster already tied to theft. Never a seed phrase.</p>
+            <p class="card-open"><a href="wallet.html">Open the wallet scanner</a></p>
+          </article>
+          <article class="card" id="defi">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="12" width="28" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 38h16M24 32v6" stroke="#3c7dff" stroke-width="2" stroke-linecap="round"/></svg>
+            <h3>DeFi app scanner</h3>
+            <p>Give the app’s address. See whether the page, the contracts, and the approval it asks for are the same thing.</p>
+            <p class="card-soon">Coming soon</p>
+          </article>
+          <article class="card" id="chain">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="18" width="12" height="12" rx="2" fill="none" stroke="#3c7dff" stroke-width="2"/><rect x="30" y="18" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M18 24h12" stroke="currentColor" stroke-width="2"/></svg>
+            <h3>Blockchain scanner</h3>
+            <p>Pick a chain. See if the client, the bridge, or the validator set is showing a fault that is already public.</p>
+            <p class="card-soon">Coming soon</p>
+          </article>
+          <article class="card" id="portfolio">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 34V18M20 34V14M30 34V22M40 34V10" stroke="#3c7dff" stroke-width="2.4" stroke-linecap="round"/></svg>
+            <h3>Portfolio scanner</h3>
+            <p>Point it at the positions you hold. See which of them changed risk since the last time you looked.</p>
+            <p class="card-soon">Coming soon</p>
+          </article>
+        </div>
+        <p class="section-end"><a href="docs.html">Read how each scanner works</a></p>
+      </div>
+    </section>
+
+    <section class="section" id="read" style="padding-top:0">
+      <div class="wrap split">
+        <div>
+          <h2>What a read looks like</h2>
+          <p class="lede">A scan should be a board you can read in one glance. Numbers and flags, then a sentence. This sample is a layout, not a live result.</p>
+        </div>
+        <div class="example example--score" aria-label="Example scan layout">
+          <div class="example-top"><span>Example layout</span><span>Token scan</span></div>
+          <div class="score-sample">
+            <svg class="score-sample__svg" viewBox="0 0 360 340" fill="none" aria-hidden="true">
+              <g class="score-petal score-petal--security">
+                <polygon class="score-petal__track" points="180,40 145.3,116.6 214.7,116.6"/>
+                <polygon class="score-petal__fill" points="180,49.2 145.3,116.6 214.7,116.6"/>
+                <text class="score-petal__label" x="180" y="18" text-anchor="middle" dominant-baseline="middle">Security</text>
+              </g>
+              <g class="score-petal score-petal--community">
+                <polygon class="score-petal__track" points="290.9,232 241.8,163.7 207.2,223.7"/>
+                <polygon class="score-petal__fill" points="259,213.6 241.8,163.7 207.2,223.7"/>
+                <text class="score-petal__label" x="309.9" y="243" text-anchor="middle" dominant-baseline="middle">Community</text>
+              </g>
+              <g class="score-petal score-petal--foundation">
+                <polygon class="score-petal__track" points="69.1,232 152.8,223.7 118.2,163.7"/>
+                <polygon class="score-petal__fill" points="130.2,196.8 152.8,223.7 118.2,163.7"/>
+                <text class="score-petal__label" x="50.1" y="243" text-anchor="middle" dominant-baseline="middle">Foundation</text>
+              </g>
+              <circle class="score-sample__ring" cx="180" cy="168" r="50"/>
+              <circle class="score-sample__core" cx="180" cy="168" r="46"/>
+            </svg>
+            <div class="score-sample__mid" aria-hidden="true">
+              <span class="score-sample__num">54</span>
+              <span class="score-sample__max">out of 100</span>
+            </div>
+            <p class="visually-hidden">Sample scores: Security strong, Community mixed, Foundation weak. Overall 54 out of 100.</p>
+          </div>
+          <div class="rows">
+            <div class="row"><b>Sale can be paused</b><span class="tag">Look closer</span></div>
+            <div class="row"><b>Owner can change the rules</b><span class="tag">Look closer</span></div>
+            <div class="row"><b>Hidden mint</b><span class="tag">Not seen</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="extension">
+      <div class="wrap">
+        <div class="extension">
+          <div>
+            <p class="kicker">Token scanner extension</p>
+            <h2>Check the token before you approve it.</h2>
+            <p class="lede">The Chrome extension is for the token scanner. On DexScreener, Uniswap, GMGN, or Birdeye it reads the token in the page and runs the same scan.</p>
+            <div class="hero-actions">
+              <button class="primary status" type="button" disabled>Chrome extension is under appeal, pending Google's approval.</button>
+              <a class="text-button" href="docs.html#extension">Extension notes</a>
+            </div>
+            <p class="prototype-note">The token scanner extension is with Google. This button will install it once the listing is approved.</p>
+          </div>
+          <div class="browser" aria-hidden="true">
+            <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="omni"></span><span class="pin"></span></div>
+            <p>A token page is open. The token scanner extension shows the read here before you approve.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="book">
+      <div class="wrap investigate">
+        <div>
+          <p class="kicker">Investigations</p>
+          <h2>Have you been caught in a scam? We can help.</h2>
+          <p class="lede">Tell us what you signed, what left the wallet, and when. A person follows the trail and says what can still be done. This is not a promise that funds come back.</p>
+          <div class="marks" aria-hidden="true">
+            <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="12" fill="none" stroke="#3c7dff" stroke-width="2"/></svg>
+            <svg viewBox="0 0 48 48"><rect x="10" y="16" width="28" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <svg viewBox="0 0 48 48"><rect x="12" y="14" width="24" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+            <svg viewBox="0 0 48 48"><path d="M12 24h24" stroke="#3c7dff" stroke-width="2"/></svg>
+            <svg viewBox="0 0 48 48"><path d="M16 32V18M24 32V14M32 32V22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+        </div>
+        <div class="form-card">
+          <h3>Book an investigation</h3>
+          <p class="form-note">A private investigation. Tick everything you want a person to look at.</p>
+          <form id="book-form" novalidate>
+            <label>Name<input name="name" autocomplete="name" required></label>
+            <label>Email<input name="email" type="email" autocomplete="email" required></label>
+            <label>What happened<textarea name="story" required placeholder="What you clicked, what you approved, and what left the wallet."></textarea></label>
+            <fieldset class="checks">
+              <legend>What should we look at?</legend>
+              <label><input type="checkbox" name="interest" value="tracking"> Tracking funds</label>
+              <label><input type="checkbox" name="interest" value="freezing"> Freezing funds</label>
+              <label><input type="checkbox" name="interest" value="reporting"> Reporting stolen funds to the relevant authorities</label>
+              <label><input type="checkbox" name="interest" value="wallets"> Identify the wallets involved</label>
+              <label><input type="checkbox" name="interest" value="evidence"> Preserve the evidence</label>
+              <label><input type="checkbox" name="interest" value="approval"> Trace an approval you already signed</label>
+              <label><input type="checkbox" name="interest" value="defi"> Identify vulnerabilities in DeFi apps</label>
+              <label><input type="checkbox" name="interest" value="tokens"> Identify vulnerabilities in tokens</label>
+              <label><input type="checkbox" name="interest" value="wallet-audit"> Audit a wallet address</label>
+              <label><input type="checkbox" name="interest" value="project"> Audit your project</label>
+            </fieldset>
+            <label class="consent"><input type="checkbox" name="updates"> Send me product notes. Leave this off if you only want a reply about this case.</label>
+            <label class="consent"><input type="checkbox" name="terms" required> I understand this is a request, not a promise that funds can be recovered.</label>
+            <button class="submit" type="submit">Book an investigation</button>
+            <p class="form-note" id="form-error" role="alert" hidden></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="coverage" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Chains the scanners are meant to read</h2>
+          <p>Each name goes to the documentation. They are not partner logos, and they are not live yet.</p>
+        </div>
+        <div class="chain-list">
+          <a href="docs.html#blockchain-scanner">Ethereum</a>
+          <a href="docs.html#blockchain-scanner">Solana</a>
+          <a href="docs.html#blockchain-scanner">Base</a>
+          <a href="docs.html#blockchain-scanner">Arbitrum</a>
+          <a href="docs.html#blockchain-scanner">Polygon</a>
+          <a href="docs.html#blockchain-scanner">BNB Chain</a>
+          <a href="docs.html#blockchain-scanner">Bitcoin</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="proof" style="padding-top:0">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Proof, when it is real</h2>
+          <p>Closed cases will sit on this board, with a name only if that person agrees. Empty on purpose.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric"><strong>5</strong><span>Scanners you can name from the first screen</span></div>
+          <div class="metric"><strong>1</strong><span>Token scanner extension for Chrome</span></div>
+          <div class="metric"><strong>1</strong><span>Way to book a person</span></div>
+        </div>
+        <div class="reviews" style="margin-top:0.8rem">
+          <article class="review"><strong>A closed case</strong><span>The quote, the matter, and whether the trail was still warm. Nothing is invented to fill this card.</span></article>
+          <article class="review"><strong>Who answered</strong><span>A name and a way to reach them goes here. No stock portraits.</span></article>
+          <article class="review"><strong>What changed</strong><span>One outcome in a sentence, written after the work, not before.</span></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <p class="fine">Blockfisher spots the phish before you bite, and follows the trail when you've been caught.</p>
+      <div class="footer-links">
+        <a href="#scanners">Scanners</a>
+        <a href="docs.html">Documentation</a>
+        <a href="#extension">Token extension</a>
+        <a href="#book">Book an investigation</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="signin">
+    <h2>Sign in</h2>
+    <p>Email only, for this design. Wallet and social sign-in are not part of the prototype, and this form does not create an account.</p>
+    <form method="dialog">
+      <label>Email<input type="email" name="email" autocomplete="email" required></label>
+      <menu>
+        <button class="ghost" type="submit" value="cancel">Close</button>
+        <button class="submit" type="submit" value="ok">Continue</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

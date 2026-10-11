@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentation — Blockfisher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,520;1,9..144,520&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script>
+    try {
+      var saved = localStorage.getItem("blockfisher-theme");
+      if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Blockfisher home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M8 20c0-6 4-10 10-10 4 0 6 2 6 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M22 11c2 1 4 3 4 6 0 2-1.2 3.2-2.8 3.2-1.4 0-2.4-1-2.4-2.2" fill="none" stroke="#3c7dff" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="22.2" cy="15.2" r="1.2" fill="#3c7dff"/>
+        </svg>
+        Blockfisher
+      </a>
+      <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="index.html#scanners">Scanners</a>
+        <a href="docs.html" aria-current="page">Documentation</a>
+        <a href="index.html#extension">Token extension</a>
+        <a class="nav-book" href="index.html#book">Book an investigation</a>
+      </nav>
+      <div class="header-actions">
+        <button class="text-button" type="button" data-open="signin">Sign in</button>
+        <button class="icon-button" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light colours">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 1.5v2.2M9 14.3v2.2M1.5 9h2.2M14.3 9h2.2M3.4 3.4l1.6 1.6M13 13l1.6 1.6M14.6 3.4 13 5M5 13l-1.6 1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <a class="primary book" href="index.html#book">Book an investigation</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="docs">
+    <div class="wrap docs-layout">
+      <nav aria-label="Documentation">
+        <a href="#token-scanner">Token scanner</a>
+        <a href="#wallet-scanner">Wallet scanner</a>
+        <a href="#defi-app-scanner">DeFi app scanner</a>
+        <a href="#blockchain-scanner">Blockchain scanner</a>
+        <a href="#portfolio-scanner">Portfolio scanner</a>
+        <a href="#extension">Token scanner extension</a>
+        <a href="#investigation">Book an investigation</a>
+      </nav>
+      <article>
+        <header>
+          <p class="kicker">Documentation</p>
+          <h1>How the pieces are meant to work</h1>
+          <p class="lede">One page for every scanner, the extension, and an investigation. The writing stays the same size as the rest of the site.</p>
+        </header>
+        <section id="token-scanner">
+          <h2>Token scanner</h2>
+          <p>You paste a token’s public address. The read should say, in plain language, whether a sale can be stopped, whether new supply can be created, and whether one owner can change the contract after you buy.</p>
+          <p><a href="token.html">Open the token scanner</a></p>
+        </section>
+        <section id="wallet-scanner">
+          <h2>Wallet scanner</h2>
+          <p>You paste a public address. The read should say if that address has touched a drainer, a known scam, or a cluster already tied to stolen funds. You can also list token contracts that wallet deployed, with the contract address and a DexScreener link. It never asks for a seed phrase or a private key.</p>
+          <p><a href="wallet.html">Open the wallet scanner</a></p>
+        </section>
+        <section id="defi-app-scanner">
+          <h2>DeFi app scanner</h2>
+          <p>You give the app’s site or contract. The read should say whether the page you see, the contracts it calls, and the approval on the screen are the same system.</p>
+        </section>
+        <section id="blockchain-scanner">
+          <h2>Blockchain scanner</h2>
+          <p>You pick a chain. The read should say if the client, a bridge, or the validator set is showing a fault that is already public. Ethereum, Solana, Base, Arbitrum, Polygon, BNB Chain, and Bitcoin are the first names on the list.</p>
+        </section>
+        <section id="portfolio-scanner">
+          <h2>Portfolio scanner</h2>
+          <p>You point it at positions you already hold. The read should say which of them became riskier since the last check, without making you open five tools.</p>
+        </section>
+        <section id="extension">
+          <h2>Token scanner extension</h2>
+          <p>The Chrome extension is for the token scanner. It watches DexScreener, Uniswap, GMGN, and Birdeye. When the page has a token address, it runs the same scan as the token scanner on this site. On a pair page it scores the base token.</p>
+          <p><button class="primary status" type="button" disabled>Chrome extension is under appeal, pending Google's approval.</button></p>
+        </section>
+        <section id="investigation">
+          <h2>Book an investigation</h2>
+          <p>Have you been caught in a scam? We can help. You say what you signed, what left the wallet, and when. A person follows the trail and tells you what can still be done. Booking is a request. It is not a promise that the funds come back.</p>
+          <p><a href="index.html#book">Book an investigation</a></p>
+        </section>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <p class="fine">Blockfisher spots the phish before you bite, and follows the trail when you've been caught.</p>
+      <div class="footer-links">
+        <a href="index.html#scanners">Scanners</a>
+        <a href="docs.html">Documentation</a>
+        <a href="index.html#extension">Token extension</a>
+        <a href="index.html#book">Book an investigation</a>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="signin">
+    <h2>Sign in</h2>
+    <p>Email only, for this design. Wallet and social sign-in are not part of the prototype, and this form does not create an account.</p>
+    <form method="dialog">
+      <label>Email<input type="email" name="email" autocomplete="email" required></label>
+      <menu>
+        <button class="ghost" type="submit" value="cancel">Close</button>
+        <button class="submit" type="submit" value="ok">Continue</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

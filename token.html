@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Token scanner — Blockfisher</title>
+  <meta name="description" content="Paste a token address. Blockfisher reads whether a sale can be paused, supply can be minted, or an owner can rewrite the rules.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,520;1,9..144,520&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
+  <script>
+    try {
+      var saved = localStorage.getItem("blockfisher-theme");
+      if (saved === "light" || saved === "dark") document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="logo" href="index.html" aria-label="Blockfisher home">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M8 20c0-6 4-10 10-10 4 0 6 2 6 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+          <path d="M22 11c2 1 4 3 4 6 0 2-1.2 3.2-2.8 3.2-1.4 0-2.4-1-2.4-2.2" fill="none" stroke="#3c7dff" stroke-width="2.2" stroke-linecap="round"/>
+          <circle cx="22.2" cy="15.2" r="1.2" fill="#3c7dff"/>
+        </svg>
+        Blockfisher
+      </a>
+      <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <div class="dropdown">
+          <button class="menu-button" type="button" aria-expanded="false" aria-controls="scanner-menu">Scanners</button>
+          <div class="dropdown-panel" id="scanner-menu">
+            <a href="token.html" aria-current="page"><strong>Token scanner</strong><span>Can this token trap a sale or change its own rules?</span></a>
+            <a href="wallet.html"><strong>Wallet scanner</strong><span>Has this address touched a drainer or a known scam?</span></a>
+            <a href="index.html#defi"><strong>DeFi app scanner</strong><span>Does the site match the contracts it asks you to sign?</span></a>
+            <a href="index.html#chain"><strong>Blockchain scanner</strong><span>Is the chain, bridge, or client showing a known fault?</span></a>
+            <a href="index.html#portfolio"><strong>Portfolio scanner</strong><span>Which positions changed risk since you last looked?</span></a>
+          </div>
+        </div>
+        <a href="docs.html">Documentation</a>
+        <a href="index.html#extension">Token extension</a>
+        <a class="nav-book" href="index.html#book">Book an investigation</a>
+      </nav>
+      <div class="header-actions">
+        <button class="text-button" type="button" data-open="signin">Sign in</button>
+        <button class="icon-button" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light colours">
+          <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><circle cx="9" cy="9" r="3.2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M9 1.5v2.2M9 14.3v2.2M1.5 9h2.2M14.3 9h2.2M3.4 3.4l1.6 1.6M13 13l1.6 1.6M14.6 3.4 13 5M5 13l-1.6 1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </button>
+        <a class="primary book" href="index.html#book">Book an investigation</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="tool-page">
+    <iframe class="tool-frame" data-tool data-src="https://token.blockfisher.co.uk/" data-ports="5181,5179" title="Token scanner" hidden></iframe>
+    <div class="tool-missing" id="tool-missing" hidden>
+      <h1>Token scanner is not running</h1>
+      <p>The page is part of the site. The scan itself runs in the token scanner app.</p>
+      <p>Published app: <code>https://token.blockfisher.co.uk/</code></p>
+      <p>On this computer: from the trust-score folder, <code>npx vite --host 127.0.0.1 --port 5181</code></p>
+    </div>
+  </main>
+
+  <dialog id="signin">
+    <h2>Sign in</h2>
+    <p>Email only, for this design. Wallet and social sign-in are not part of the prototype, and this form does not create an account.</p>
+    <form method="dialog">
+      <label>Email<input type="email" name="email" autocomplete="email" required></label>
+      <menu>
+        <button class="ghost" type="submit" value="cancel">Close</button>
+        <button class="submit" type="submit" value="ok">Continue</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 340" fill="none" aria-hidden="true">
+  <polygon fill="#101820" stroke="#2c3b4d" stroke-width="1.5" points="180,40 145.3,116.6 214.7,116.6"/>
+  <polygon fill="#3dbe7a" points="180,49.2 145.3,116.6 214.7,116.6"/>
+  <text fill="#e7eef6" font-family="Outfit, Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="middle" dominant-baseline="middle" x="180" y="18">Security</text>
+  <polygon fill="#101820" stroke="#2c3b4d" stroke-width="1.5" points="290.9,232 241.8,163.7 207.2,223.7"/>
+  <polygon fill="#f2c200" points="259,213.6 241.8,163.7 207.2,223.7"/>
+  <text fill="#e7eef6" font-family="Outfit, Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="middle" dominant-baseline="middle" x="309.9" y="243">Community</text>
+  <polygon fill="#101820" stroke="#2c3b4d" stroke-width="1.5" points="69.1,232 152.8,223.7 118.2,163.7"/>
+  <polygon fill="#5c6e82" points="130.2,196.8 152.8,223.7 118.2,163.7"/>
+  <text fill="#e7eef6" font-family="Outfit, Segoe UI, sans-serif" font-size="13" font-weight="700" text-anchor="middle" dominant-baseline="middle" x="50.1" y="243">Foundation</text>
+  <circle cx="180" cy="168" r="50" fill="none" stroke="#ff8a62" stroke-width="5"/>
+  <circle cx="180" cy="168" r="46" fill="#151d28" stroke="#2c3b4d" stroke-width="1"/>
+</svg>
