@@ -33,15 +33,13 @@
         <div class="dropdown">
           <button class="menu-button" type="button" aria-expanded="false" aria-controls="scanner-menu">Scanners</button>
           <div class="dropdown-panel" id="scanner-menu">
+            <a href="#extension"><strong>Token scanner extension</strong><span>A plain-English token check on the page where you buy.</span></a>
             <a href="token.html"><strong>Token scanner</strong><span>Can this token trap a sale or change its own rules?</span></a>
-            <a href="wallet.html"><strong>Wallet scanner</strong><span>Has this address touched a drainer or a known scam?</span></a>
-            <a href="#defi"><strong>DeFi app scanner</strong><span>Does the site match the contracts it asks you to sign?</span></a>
-            <a href="#chain"><strong>Blockchain scanner</strong><span>Is the chain, bridge, or client showing a known fault?</span></a>
-            <a href="#portfolio"><strong>Portfolio scanner</strong><span>Which positions changed risk since you last looked?</span></a>
+            <a href="#later"><strong>Coming later</strong><span>Wallet, DeFi app, blockchain and portfolio scanners. Not for sale yet.</span></a>
           </div>
         </div>
-        <a href="docs.html">Documentation</a>
         <a href="#extension">Token extension</a>
+        <a href="docs.html">Documentation</a>
         <a class="nav-book" href="#book">Book an investigation</a>
       </nav>
       <div class="header-actions">
@@ -59,21 +57,40 @@
       <div class="hero-glow" aria-hidden="true"></div>
       <div class="wrap hero-grid hero-grid--solo">
         <div class="hero-copy">
-          <p class="kicker">Five scanners. One investigator.</p>
+          <p class="kicker">A token check on the page where you buy.</p>
           <h1>Blockfisher spots the <em>phish</em> before you bite, and follows the <em>trail</em> when you've been caught.</h1>
-          <p class="lede">Check a token, a wallet, a DeFi app, a chain, or a portfolio before you sign. If the money has already moved, book a person to follow it.</p>
+          <p class="lede">The Blockfisher Chrome extension gives you a plain-English token check on the page where you buy. If the money has already moved, book a person to follow it.</p>
           <div class="sale-row" aria-label="What you can use">
+            <a href="#extension">Token scanner extension</a>
             <a href="token.html">Token scanner</a>
-            <a href="wallet.html">Wallet scanner</a>
-            <a href="#defi">DeFi app scanner</a>
-            <a href="#chain">Blockchain scanner</a>
-            <a href="#portfolio">Portfolio scanner</a>
+            <a href="#book">Fund tracing</a>
           </div>
           <div class="hero-actions">
-            <a class="primary" href="#scanners">See the scanners</a>
-            <a class="text-button" href="#extension">Get the token scanner extension</a>
+            <a class="primary" href="#extension">Get the Chrome extension</a>
+            <a class="text-button" href="token.html">Open the token scanner</a>
           </div>
-          <p class="prototype-note">Token scanner, wallet scanner, and the token scanner extension are on this site. The other three scanners are still designs.</p>
+          <p class="prototype-note">Wallet, DeFi app, blockchain and portfolio scanners are coming later, one at a time. They are not for sale yet.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="extension">
+      <div class="wrap">
+        <div class="extension">
+          <div>
+            <p class="kicker">Token scanner extension</p>
+            <h2>Check the token before you approve it.</h2>
+            <p class="lede">A plain-English token check on the page where you buy. On DexScreener, Uniswap, GMGN, or Birdeye the extension reads the token in the page and runs the same scan as the token scanner on this site.</p>
+            <div class="hero-actions">
+              <button class="primary status" type="button" disabled>Coming to the Chrome Web Store</button>
+              <a class="text-button" href="docs.html#extension">Extension notes</a>
+            </div>
+            <p class="prototype-note">This button will install the extension once the Chrome Web Store listing is live.</p>
+          </div>
+          <div class="browser" aria-hidden="true">
+            <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="omni"></span><span class="pin"></span></div>
+            <p>A token page is open. The token scanner extension shows the read here before you approve.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -81,39 +98,58 @@
     <section class="section" id="scanners">
       <div class="wrap">
         <div class="section-head">
-          <h2>What is for sale</h2>
-          <p>Every scanner is listed here. You do not have to hover a menu to find out the others exist.</p>
+          <h2>What you can use today</h2>
+          <p>The token scanner, on this site and in your browser. Fund tracing is the one service a person does.</p>
         </div>
         <div class="cards">
+          <article class="card" id="extension-card">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="10" width="32" height="28" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 17h32" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="28" r="5" fill="none" stroke="#3c7dff" stroke-width="2"/></svg>
+            <h3>Token scanner extension</h3>
+            <p>Open a token on DexScreener, Uniswap, GMGN, or Birdeye. The read appears beside the page before you approve.</p>
+            <p class="card-open"><a href="#extension">About the extension</a></p>
+          </article>
           <article class="card" id="token">
             <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="14" fill="none" stroke="#3c7dff" stroke-width="2"/><path d="M24 14v20M18 20h8a4 4 0 0 1 0 8h-8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
             <h3>Token scanner</h3>
             <p>Paste a token address. See if a sale can be paused, if supply can be minted, or if an owner can rewrite the rules.</p>
             <p class="card-open"><a href="token.html">Open the token scanner</a></p>
           </article>
+          <article class="card" id="tracing">
+            <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 34c6 0 6-12 12-12s6 8 12 8 4-14 8-14" fill="none" stroke="#3c7dff" stroke-width="2" stroke-linecap="round"/><circle cx="40" cy="16" r="2.5" fill="currentColor"/></svg>
+            <h3>Fund tracing</h3>
+            <p>If money has left your wallet, a person follows the trail. Quoted per request, starting from $500. No guarantee of results.</p>
+            <p class="card-open"><a href="#book">Book an investigation</a></p>
+          </article>
+        </div>
+
+        <div class="section-head" id="later" style="margin-top:3rem">
+          <h2>Coming later</h2>
+          <p>Each scanner launches on its own, only once it is built, tested in house, and tested by the public. None of them are for sale yet.</p>
+        </div>
+        <div class="cards">
           <article class="card" id="wallet">
             <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="8" y="14" width="32" height="22" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 20h32" stroke="#3c7dff" stroke-width="2"/><circle cx="32" cy="28" r="2" fill="#3c7dff"/></svg>
             <h3>Wallet scanner</h3>
             <p>Paste a public address. See if it has touched a drainer, a known scam, or a cluster already tied to theft. Never a seed phrase.</p>
-            <p class="card-open"><a href="wallet.html">Open the wallet scanner</a></p>
+            <p class="card-soon">Coming later</p>
           </article>
           <article class="card" id="defi">
             <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="10" y="12" width="28" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M16 38h16M24 32v6" stroke="#3c7dff" stroke-width="2" stroke-linecap="round"/></svg>
             <h3>DeFi app scanner</h3>
             <p>Give the app’s address. See whether the page, the contracts, and the approval it asks for are the same thing.</p>
-            <p class="card-soon">Coming soon</p>
+            <p class="card-soon">Coming later</p>
           </article>
           <article class="card" id="chain">
             <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="18" width="12" height="12" rx="2" fill="none" stroke="#3c7dff" stroke-width="2"/><rect x="30" y="18" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M18 24h12" stroke="currentColor" stroke-width="2"/></svg>
             <h3>Blockchain scanner</h3>
             <p>Pick a chain. See if the client, the bridge, or the validator set is showing a fault that is already public.</p>
-            <p class="card-soon">Coming soon</p>
+            <p class="card-soon">Coming later</p>
           </article>
           <article class="card" id="portfolio">
             <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 34V18M20 34V14M30 34V22M40 34V10" stroke="#3c7dff" stroke-width="2.4" stroke-linecap="round"/></svg>
             <h3>Portfolio scanner</h3>
             <p>Point it at the positions you hold. See which of them changed risk since the last time you looked.</p>
-            <p class="card-soon">Coming soon</p>
+            <p class="card-soon">Coming later</p>
           </article>
         </div>
         <p class="section-end"><a href="docs.html">Read how each scanner works</a></p>
@@ -163,33 +199,17 @@
       </div>
     </section>
 
-    <section class="section" id="extension">
-      <div class="wrap">
-        <div class="extension">
-          <div>
-            <p class="kicker">Token scanner extension</p>
-            <h2>Check the token before you approve it.</h2>
-            <p class="lede">The Chrome extension is for the token scanner. On DexScreener, Uniswap, GMGN, or Birdeye it reads the token in the page and runs the same scan.</p>
-            <div class="hero-actions">
-              <button class="primary status" type="button" disabled>Chrome extension is under appeal, pending Google's approval.</button>
-              <a class="text-button" href="docs.html#extension">Extension notes</a>
-            </div>
-            <p class="prototype-note">The token scanner extension is with Google. This button will install it once the listing is approved.</p>
-          </div>
-          <div class="browser" aria-hidden="true">
-            <div class="browser-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="omni"></span><span class="pin"></span></div>
-            <p>A token page is open. The token scanner extension shows the read here before you approve.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="section" id="book">
       <div class="wrap investigate">
         <div>
           <p class="kicker">Investigations</p>
           <h2>Have you been caught in a scam? We can help.</h2>
-          <p class="lede">Tell us what you signed, what left the wallet, and when. A person follows the trail and says what can still be done. This is not a promise that funds come back.</p>
+          <p class="lede">Tell us what you signed, what left the wallet, and when. A person follows the trail and says what can still be done.</p>
+          <ul class="terms-list">
+            <li><strong>Quoted per request, starting from $500.</strong> You get a quote before any work starts.</li>
+            <li><strong>Large cases:</strong> a deposit plus a percentage of funds recovered, agreed in writing before you pay.</li>
+            <li><strong>Investigations do not guarantee results.</strong> We cannot promise that funds will be recovered or frozen.</li>
+          </ul>
           <div class="marks" aria-hidden="true">
             <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="12" fill="none" stroke="#3c7dff" stroke-width="2"/></svg>
             <svg viewBox="0 0 48 48"><rect x="10" y="16" width="28" height="18" rx="3" fill="none" stroke="currentColor" stroke-width="2"/></svg>
@@ -200,7 +220,7 @@
         </div>
         <div class="form-card">
           <h3>Book an investigation</h3>
-          <p class="form-note">A private investigation. Tick everything you want a person to look at.</p>
+          <p class="form-note">A private investigation, quoted per request from $500. Tick everything you want a person to look at.</p>
           <form id="book-form" novalidate>
             <label>Name<input name="name" autocomplete="name" required></label>
             <label>Email<input name="email" type="email" autocomplete="email" required></label>
@@ -213,13 +233,9 @@
               <label><input type="checkbox" name="interest" value="wallets"> Identify the wallets involved</label>
               <label><input type="checkbox" name="interest" value="evidence"> Preserve the evidence</label>
               <label><input type="checkbox" name="interest" value="approval"> Trace an approval you already signed</label>
-              <label><input type="checkbox" name="interest" value="defi"> Identify vulnerabilities in DeFi apps</label>
-              <label><input type="checkbox" name="interest" value="tokens"> Identify vulnerabilities in tokens</label>
-              <label><input type="checkbox" name="interest" value="wallet-audit"> Audit a wallet address</label>
-              <label><input type="checkbox" name="interest" value="project"> Audit your project</label>
             </fieldset>
             <label class="consent"><input type="checkbox" name="updates"> Send me product notes. Leave this off if you only want a reply about this case.</label>
-            <label class="consent"><input type="checkbox" name="terms" required> I understand this is a request, not a promise that funds can be recovered.</label>
+            <label class="consent"><input type="checkbox" name="terms" required> I understand this is a request for a quote, and that investigations do not guarantee results.</label>
             <button class="submit" type="submit">Book an investigation</button>
             <p class="form-note" id="form-error" role="alert" hidden></p>
           </form>
@@ -252,7 +268,7 @@
           <p>Closed cases will sit on this board, with a name only if that person agrees. Empty on purpose.</p>
         </div>
         <div class="metrics">
-          <div class="metric"><strong>5</strong><span>Scanners you can name from the first screen</span></div>
+          <div class="metric"><strong>1</strong><span>Token scanner on this site</span></div>
           <div class="metric"><strong>1</strong><span>Token scanner extension for Chrome</span></div>
           <div class="metric"><strong>1</strong><span>Way to book a person</span></div>
         </div>
@@ -270,8 +286,8 @@
       <p class="fine">Blockfisher spots the phish before you bite, and follows the trail when you've been caught.</p>
       <div class="footer-links">
         <a href="#scanners">Scanners</a>
-        <a href="docs.html">Documentation</a>
         <a href="#extension">Token extension</a>
+        <a href="docs.html">Documentation</a>
         <a href="#book">Book an investigation</a>
       </div>
     </div>
