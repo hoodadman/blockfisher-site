@@ -472,7 +472,18 @@ h1 em {
 .card-open a { color: var(--accent); font-weight: 600; text-decoration: none; }
 .card-open a:hover { text-decoration: underline; }
 
-.tool-page { height: calc(100svh - var(--header)); }
+.tool-page { height: calc(100svh - var(--header)); position: relative; }
+.tool-waking {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0 1.25rem;
+  text-align: center;
+  color: var(--muted);
+  background: var(--bg);
+}
+.tool-waking[hidden] { display: none; }
 .tool-frame {
   width: 100%;
   height: 100%;

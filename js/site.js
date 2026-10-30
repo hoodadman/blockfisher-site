@@ -95,6 +95,7 @@
       return port.trim();
     }).filter(Boolean);
     var missing = document.getElementById("tool-missing");
+    var waking = document.getElementById("tool-waking");
 
     function themeNow() {
       return root.dataset.theme === "light" ? "light" : "dark";
@@ -110,6 +111,8 @@
     function mountSrc(src) {
       tool.hidden = false;
       if (missing) missing.hidden = true;
+      // The scanner sleeps when nobody has used it for a while; say so until the frame loads.
+      if (waking) waking.hidden = false;
       var url = new URL(src, location.href);
       url.searchParams.set("embed", "1");
       url.searchParams.set("theme", themeNow());
@@ -117,6 +120,7 @@
     }
 
     function giveUp() {
+      if (waking) waking.hidden = true;
       tool.removeAttribute("src");
       tool.hidden = true;
       if (missing) missing.hidden = false;
@@ -144,7 +148,10 @@
     } else {
       attempt(0);
     }
-    tool.addEventListener("load", tellTool);
+    tool.addEventListener("load", function () {
+      if (waking) waking.hidden = true;
+      tellTool();
+    });
     if (themeButton) themeButton.addEventListener("click", function () { setTimeout(tellTool, 0); });
   }
 
