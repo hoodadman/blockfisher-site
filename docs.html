@@ -29,9 +29,9 @@
       </a>
       <button class="icon-button menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
       <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="index.html#extension">Token extension</a>
         <a href="index.html#scanners">Scanners</a>
         <a href="docs.html" aria-current="page">Documentation</a>
-        <a href="index.html#extension">Token extension</a>
         <a class="nav-book" href="index.html#book">Book an investigation</a>
       </nav>
       <div class="header-actions">
@@ -47,51 +47,52 @@
   <main id="main" class="docs">
     <div class="wrap docs-layout">
       <nav aria-label="Documentation">
-        <a href="#token-scanner">Token scanner</a>
-        <a href="#wallet-scanner">Wallet scanner</a>
-        <a href="#defi-app-scanner">DeFi app scanner</a>
-        <a href="#blockchain-scanner">Blockchain scanner</a>
-        <a href="#portfolio-scanner">Portfolio scanner</a>
         <a href="#extension">Token scanner extension</a>
+        <a href="#token-scanner">Token scanner</a>
         <a href="#investigation">Book an investigation</a>
+        <a href="#coming-later">Coming later</a>
       </nav>
       <article>
         <header>
           <p class="kicker">Documentation</p>
           <h1>How the pieces are meant to work</h1>
-          <p class="lede">One page for every scanner, the extension, and an investigation. The writing stays the same size as the rest of the site.</p>
+          <p class="lede">One page for the token scanner extension, the token scanner, fund tracing, and the scanners coming later.</p>
         </header>
+        <section id="extension">
+          <h2>Token scanner extension</h2>
+          <p>The Chrome extension is the main way to use Blockfisher: a plain-English token check on the page where you buy. It watches DexScreener, Uniswap, GMGN, and Birdeye. When the page has a token address, it runs the same scan as the token scanner on this site. On a pair page it scores the base token.</p>
+          <p><button class="primary status" type="button" disabled>Coming to the Chrome Web Store</button></p>
+        </section>
         <section id="token-scanner">
           <h2>Token scanner</h2>
           <p>You paste a token’s public address. The read should say, in plain language, whether a sale can be stopped, whether new supply can be created, and whether one owner can change the contract after you buy.</p>
           <p><a href="token.html">Open the token scanner</a></p>
         </section>
+        <section id="investigation">
+          <h2>Book an investigation</h2>
+          <p>Have you been caught in a scam? We can help. You say what you signed, what left the wallet, and when. A person follows the trail and tells you what can still be done. Booking is a request for a quote.</p>
+          <p>Investigations are quoted per request, starting from $500. Large cases are charged as a deposit plus a percentage of funds recovered, agreed in writing before you pay. Investigations do not guarantee results: we cannot promise that funds will be recovered or frozen.</p>
+          <p><a href="index.html#book">Book an investigation</a></p>
+        </section>
+        <section id="coming-later">
+          <h2>Coming later</h2>
+          <p>These scanners are not for sale yet. Each one launches on its own, only once it is built, tested in house, and tested by the public.</p>
+        </section>
         <section id="wallet-scanner">
-          <h2>Wallet scanner</h2>
+          <h3>Wallet scanner</h3>
           <p>You paste a public address. The read should say if that address has touched a drainer, a known scam, or a cluster already tied to stolen funds. You can also list token contracts that wallet deployed, with the contract address and a DexScreener link. It never asks for a seed phrase or a private key.</p>
-          <p><a href="wallet.html">Open the wallet scanner</a></p>
         </section>
         <section id="defi-app-scanner">
-          <h2>DeFi app scanner</h2>
+          <h3>DeFi app scanner</h3>
           <p>You give the app’s site or contract. The read should say whether the page you see, the contracts it calls, and the approval on the screen are the same system.</p>
         </section>
         <section id="blockchain-scanner">
-          <h2>Blockchain scanner</h2>
+          <h3>Blockchain scanner</h3>
           <p>You pick a chain. The read should say if the client, a bridge, or the validator set is showing a fault that is already public. Ethereum, Solana, Base, Arbitrum, Polygon, BNB Chain, and Bitcoin are the first names on the list.</p>
         </section>
         <section id="portfolio-scanner">
-          <h2>Portfolio scanner</h2>
+          <h3>Portfolio scanner</h3>
           <p>You point it at positions you already hold. The read should say which of them became riskier since the last check, without making you open five tools.</p>
-        </section>
-        <section id="extension">
-          <h2>Token scanner extension</h2>
-          <p>The Chrome extension is for the token scanner. It watches DexScreener, Uniswap, GMGN, and Birdeye. When the page has a token address, it runs the same scan as the token scanner on this site. On a pair page it scores the base token.</p>
-          <p><button class="primary status" type="button" disabled>Chrome extension is under appeal, pending Google's approval.</button></p>
-        </section>
-        <section id="investigation">
-          <h2>Book an investigation</h2>
-          <p>Have you been caught in a scam? We can help. You say what you signed, what left the wallet, and when. A person follows the trail and tells you what can still be done. Booking is a request. It is not a promise that the funds come back.</p>
-          <p><a href="index.html#book">Book an investigation</a></p>
         </section>
       </article>
     </div>

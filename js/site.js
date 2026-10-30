@@ -160,12 +160,12 @@
       var terms = form.querySelector('[name="terms"]').checked;
       if (!name || !email || !story || !terms || !email.includes("@")) {
         error.hidden = false;
-        error.textContent = "Add your name, a real email, what happened, and confirm this is a request rather than a promise.";
+        error.textContent = "Add your name, a real email, what happened, and confirm you understand investigations do not guarantee results.";
         return;
       }
       error.hidden = true;
       var card = form.parentElement;
-      card.innerHTML = '<h3>Request noted on this page only</h3><p class="success">Nothing was sent. When investigations are open, this form is the only place that booking lives: your name, what happened, and which parts of the case you ticked.</p>';
+      card.innerHTML = '<h3>Request noted on this page only</h3><p class="success">Nothing was sent. When investigations are open, this form is the only place that booking lives: your name, what happened, and which parts of the case you ticked. Every investigation is quoted per request, starting from $500.</p>';
     });
   }
 })();

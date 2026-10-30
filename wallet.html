@@ -33,15 +33,13 @@
         <div class="dropdown">
           <button class="menu-button" type="button" aria-expanded="false" aria-controls="scanner-menu">Scanners</button>
           <div class="dropdown-panel" id="scanner-menu">
+            <a href="index.html#extension"><strong>Token scanner extension</strong><span>A plain-English token check on the page where you buy.</span></a>
             <a href="token.html"><strong>Token scanner</strong><span>Can this token trap a sale or change its own rules?</span></a>
-            <a href="wallet.html" aria-current="page"><strong>Wallet scanner</strong><span>Has this address touched a drainer or a known scam?</span></a>
-            <a href="index.html#defi"><strong>DeFi app scanner</strong><span>Does the site match the contracts it asks you to sign?</span></a>
-            <a href="index.html#chain"><strong>Blockchain scanner</strong><span>Is the chain, bridge, or client showing a known fault?</span></a>
-            <a href="index.html#portfolio"><strong>Portfolio scanner</strong><span>Which positions changed risk since you last looked?</span></a>
+            <a href="index.html#later"><strong>Coming later</strong><span>Wallet, DeFi app, blockchain and portfolio scanners. Not for sale yet.</span></a>
           </div>
         </div>
-        <a href="docs.html">Documentation</a>
         <a href="index.html#extension">Token extension</a>
+        <a href="docs.html">Documentation</a>
         <a class="nav-book" href="index.html#book">Book an investigation</a>
       </nav>
       <div class="header-actions">
@@ -55,11 +53,10 @@
   </header>
 
   <main id="main" class="tool-page">
-    <iframe class="tool-frame" data-tool data-ports="8790,8788" title="Wallet scanner" hidden></iframe>
-    <div class="tool-missing" id="tool-missing" hidden>
-      <h1>Wallet scanner is not running</h1>
-      <p>The page is part of the site. The scan itself still runs in Butters Trace.</p>
-      <p>From the butters-trace folder: <code>python trace.py serve --port 8790</code></p>
+    <div class="tool-missing" id="tool-missing">
+      <h1>Wallet scanner is coming later</h1>
+      <p>The wallet scanner is not for sale yet. It launches once it is built, tested in house, and tested by the public.</p>
+      <p>Today you can use the <a href="index.html#extension">token scanner extension</a> and the <a href="token.html">token scanner</a>, or <a href="index.html#book">book an investigation</a> if funds have already moved.</p>
     </div>
   </main>
 

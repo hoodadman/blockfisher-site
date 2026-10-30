@@ -702,6 +702,22 @@ h1 em {
 
 .investigate h2 { max-width: 12ch; }
 
+.terms-list {
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.terms-list li {
+  padding-left: 0.9rem;
+  border-left: 2px solid var(--accent);
+  color: var(--muted);
+}
+
+.terms-list strong { color: var(--text); }
+
 .form-card {
   background: var(--bg-raised);
   border: 1px solid var(--line);
