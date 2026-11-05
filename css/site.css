@@ -613,6 +613,64 @@ h1 em {
   font-weight: 700;
 }
 
+/* Each petal and its label is a button that explains the score. */
+.score-sample .score-petal__info {
+  fill: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.score-help {
+  position: absolute;
+  z-index: 1;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 10px;
+  cursor: help;
+}
+
+.score-help:focus-visible {
+  outline: 3px solid var(--accent, #3c7dff);
+  outline-offset: 2px;
+}
+
+/* Boxes cover each petal and its label (the drawing is 360 by 340). */
+.score-help--security { left: calc(130 / 360 * 100%); top: 0; width: calc(100 / 360 * 100%); height: calc(122 / 340 * 100%); }
+.score-help--community { left: calc(205 / 360 * 100%); top: calc(158 / 340 * 100%); width: calc(155 / 360 * 100%); height: calc(100 / 340 * 100%); }
+.score-help--foundation { left: 0; top: calc(158 / 340 * 100%); width: calc(155 / 360 * 100%); height: calc(100 / 340 * 100%); }
+
+.score-tip {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 2;
+  display: none;
+  width: min(18rem, 100%);
+  padding: 0.7rem 0.85rem;
+  background: var(--bg-raised);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.35);
+  color: var(--text);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  text-align: left;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.score-tip strong {
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.score-help:hover + .score-tip,
+.score-help:focus-visible + .score-tip,
+.score-help[aria-expanded="true"] + .score-tip {
+  display: block;
+}
+
 .score-sample .score-sample__ring {
   fill: none;
   stroke: #ff8a62;
