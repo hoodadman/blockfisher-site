@@ -169,17 +169,17 @@
               <g class="score-petal score-petal--security">
                 <polygon class="score-petal__track" points="180,40 145.3,116.6 214.7,116.6"/>
                 <polygon class="score-petal__fill" points="180,49.2 145.3,116.6 214.7,116.6"/>
-                <text class="score-petal__label" x="180" y="18" text-anchor="middle" dominant-baseline="middle">Security</text>
+                <text class="score-petal__label" x="180" y="18" text-anchor="middle" dominant-baseline="middle">Security <tspan class="score-petal__info">ⓘ</tspan></text>
               </g>
               <g class="score-petal score-petal--community">
                 <polygon class="score-petal__track" points="290.9,232 241.8,163.7 207.2,223.7"/>
                 <polygon class="score-petal__fill" points="259,213.6 241.8,163.7 207.2,223.7"/>
-                <text class="score-petal__label" x="309.9" y="243" text-anchor="middle" dominant-baseline="middle">Community</text>
+                <text class="score-petal__label" x="309.9" y="243" text-anchor="middle" dominant-baseline="middle">Community <tspan class="score-petal__info">ⓘ</tspan></text>
               </g>
               <g class="score-petal score-petal--foundation">
                 <polygon class="score-petal__track" points="69.1,232 152.8,223.7 118.2,163.7"/>
                 <polygon class="score-petal__fill" points="130.2,196.8 152.8,223.7 118.2,163.7"/>
-                <text class="score-petal__label" x="50.1" y="243" text-anchor="middle" dominant-baseline="middle">Foundation</text>
+                <text class="score-petal__label" x="50.1" y="243" text-anchor="middle" dominant-baseline="middle">Foundation <tspan class="score-petal__info">ⓘ</tspan></text>
               </g>
               <circle class="score-sample__ring" cx="180" cy="168" r="50"/>
               <circle class="score-sample__core" cx="180" cy="168" r="46"/>
@@ -189,6 +189,13 @@
               <span class="score-sample__max">out of 100</span>
             </div>
             <p class="visually-hidden">Sample scores: Security strong, Community mixed, Foundation weak. Overall 54 out of 100.</p>
+            <!-- What each score means: shows on hover, keyboard focus or tap (js/site.js). Same wording as the scanner and the extension. -->
+            <button type="button" class="score-help score-help--security" aria-label="What does Security mean?" aria-describedby="score-tip-security" aria-expanded="false"></button>
+            <span class="score-tip" id="score-tip-security" role="tooltip"><strong>Security</strong> Is the token itself safe to buy and sell? We check its code for traps: whether you could be stopped from selling, hidden fees when you buy or sell, whether its makers can still change the rules or print more tokens, and whether a few wallets own most of it. Checked fresh on every scan.</span>
+            <button type="button" class="score-help score-help--community" aria-label="What does Community mean?" aria-describedby="score-tip-community" aria-expanded="false"></button>
+            <span class="score-tip" id="score-tip-community" role="tooltip"><strong>Community</strong> Are real people interested in it? We look at the token’s own X (Twitter) page: how many followers it has, how often it posts and how many people reply, plus how many real accounts are talking about it. Posts from bots are ignored.</span>
+            <button type="button" class="score-help score-help--foundation" aria-label="What does Foundation mean?" aria-describedby="score-tip-foundation" aria-expanded="false"></button>
+            <span class="score-tip" id="score-tip-foundation" role="tooltip"><strong>Foundation</strong> Is there a real project behind it? We check how long the token has been trading, whether it has a website and public docs, which big exchanges list it, and any well-known backers it names.</span>
           </div>
           <div class="rows">
             <div class="row"><b>Sale can be paused</b><span class="tag">Look closer</span></div>

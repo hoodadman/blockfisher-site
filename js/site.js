@@ -37,6 +37,27 @@
     });
   }
 
+  // Score sample: a click or tap keeps a pillar's explanation open until you tap elsewhere or press Escape.
+  var scoreHelp = document.querySelectorAll(".score-help");
+  function closeScoreHelp(except) {
+    scoreHelp.forEach(function (button) {
+      if (button !== except) button.setAttribute("aria-expanded", "false");
+    });
+  }
+  scoreHelp.forEach(function (button) {
+    button.addEventListener("click", function () {
+      var open = button.getAttribute("aria-expanded") !== "true";
+      closeScoreHelp(button);
+      button.setAttribute("aria-expanded", String(open));
+    });
+    button.addEventListener("blur", function () {
+      button.setAttribute("aria-expanded", "false");
+    });
+  });
+  document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") closeScoreHelp();
+  });
+
   var menuToggle = document.querySelector(".menu-toggle");
   var nav = document.getElementById("site-nav");
   if (menuToggle && nav) {
