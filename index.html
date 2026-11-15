@@ -877,8 +877,9 @@
     <nav aria-label="Main">
       <ul class="nav-links">
         <li><a href="#today">Scanners</a></li>
+        <li><a href="token.html">Token scanner</a></li>
         <li><a href="#extension">Token extension</a></li>
-        <li><a href="#read">Documentation</a></li>
+        <li><a href="docs.html">Documentation</a></li>
         <li><a href="#proof">Proof</a></li>
       </ul>
     </nav>
@@ -908,7 +909,7 @@
         </ul>
         <div class="cta-row">
           <a href="#extension" class="btn btn-primary shine"><i data-lucide="chrome"></i>Get the Chrome extension</a>
-          <a href="#read" class="btn btn-ghost">Open the token scanner<i data-lucide="arrow-right"></i></a>
+          <a href="token.html" class="btn btn-ghost">Open the token scanner<i data-lucide="arrow-right"></i></a>
         </div>
         <p class="fine">Wallet, DeFi app, blockchain and portfolio scanners are coming later, one at a time. They are not for sale yet.</p>
         <a href="#path" class="scroll-cue"><span><i data-lucide="arrow-down"></i></span>How Blockfisher works</a>
@@ -1094,7 +1095,7 @@
           <div class="ico"><i data-lucide="scan-search"></i></div>
           <h3>Token scanner</h3>
           <p>Paste a token address. See if a sale can be paused, if supply can be minted, or if an owner can rewrite the rules.</p>
-          <a href="#read" class="link">Open the token scanner <i data-lucide="arrow-right"></i></a>
+          <a href="token.html" class="link">Open the token scanner <i data-lucide="arrow-right"></i></a>
         </article>
         <article class="card reveal" style="--i:2">
           <div class="ico"><i data-lucide="route"></i></div>
@@ -1139,7 +1140,7 @@
           <span class="tag">Coming later</span>
         </article>
       </div>
-      <a href="#read" class="u-blue after-link">Read how each scanner works</a>
+      <a href="docs.html" class="u-blue after-link">Read how each scanner works</a>
     </div>
   </section>
 
@@ -1187,8 +1188,9 @@
       </div>
       <ul>
         <li><a href="#today">Scanners</a></li>
+        <li><a href="token.html">Token scanner</a></li>
         <li><a href="#extension">Token extension</a></li>
-        <li><a href="#read">Documentation</a></li>
+        <li><a href="docs.html">Documentation</a></li>
         <li><a href="#book">Book an investigation</a></li>
       </ul>
     </div>
@@ -1315,7 +1317,7 @@
   const steps = [...pathList.children];
   const stepTargets = ['#extension', '#read', '#book'].map((id) => document.querySelector(id));
   const navLinks = [...document.querySelectorAll('.nav-links a')];
-  const navTargets = navLinks.map((a) => document.querySelector(a.getAttribute('href')));
+  const navTargets = navLinks.map((a) => { const href = a.getAttribute('href'); return href.startsWith('#') ? document.querySelector(href) : null; });
 
   let ticking = false;
   const onScroll = () => {
