@@ -1070,6 +1070,7 @@
           <label class="check"><input type="checkbox" name="notes" />Send me product notes. Leave this off if you only want a reply about this case.</label>
           <label class="check"><input type="checkbox" name="ack" id="ack" required />I understand this is a request for a quote, and that investigations do not guarantee results.</label>
         </div>
+        <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" hidden style="display:none" />
         <button type="submit" class="btn btn-primary"><i data-lucide="send"></i>Book an investigation</button>
         <p class="form-status" role="status" aria-live="polite"></p>
       </form>
@@ -1211,10 +1212,36 @@
     themeBtn.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
   });
 
+  /* Booking form. Submissions are emailed to support@blockfisher.co.uk by
+     Web3Forms (https://web3forms.com). The access key is tied to that inbox
+     and is safe to publish: it can only deliver mail to the address it was
+     created for. Until a key is set here the form sends nothing and says so. */
+  const BOOKING_ACCESS_KEY = '';
+  const SUPPORT_EMAIL = 'support@blockfisher.co.uk';
+  const SCOPE_LABELS = {
+    tracking: 'Tracking funds',
+    freezing: 'Freezing funds',
+    wallets: 'Identify the wallets involved',
+    evidence: 'Preserve the evidence',
+    approval: 'Trace an approval you already signed',
+    report: 'Report to the relevant authorities',
+  };
+
   const form = document.querySelector('form.book');
   const status = form.querySelector('.form-status');
-  form.addEventListener('submit', (e) => {
+  const sendBtn = form.querySelector('button[type="submit"]');
+  const notSent = (why) => {
+    status.textContent = '';
+    status.append(why + ' Your request was not sent. Please email ');
+    const a = document.createElement('a');
+    a.href = 'mailto:' + SUPPORT_EMAIL + '?subject=' + encodeURIComponent('Investigation request');
+    a.textContent = SUPPORT_EMAIL;
+    status.append(a, ' instead. What you typed is still in the form.');
+  };
+  let sending = false;
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    if (sending) return;
     if (!form.name.value.trim() || !form.email.checkValidity() || !form.email.value) {
       status.textContent = 'Add your name and a valid email so a person can reply.';
       return;
@@ -1223,8 +1250,43 @@
       status.textContent = 'Please confirm you understand investigations do not guarantee results.';
       return;
     }
-    status.textContent = 'Thanks. A person will reply with a quote before any work starts.';
-    form.reset();
+    if (!BOOKING_ACCESS_KEY) {
+      notSent('This form is not connected yet.');
+      return;
+    }
+    const scope = [...form.querySelectorAll('input[name="scope"]:checked')].map((el) => SCOPE_LABELS[el.value] || el.value);
+    const name = form.name.value.trim();
+    const payload = {
+      access_key: BOOKING_ACCESS_KEY,
+      subject: 'Investigation request from ' + name,
+      from_name: 'Blockfisher website',
+      name,
+      email: form.email.value.trim(),
+      'What happened': form.what.value.trim() || '(left blank)',
+      'What to look at': scope.length ? scope.join(', ') : '(nothing ticked)',
+      'Product notes': form.notes.checked ? 'Yes, send product notes' : 'No, reply about this case only',
+      'Understands no guaranteed results': 'Yes',
+      botcheck: form.botcheck.checked,
+    };
+    sending = true;
+    sendBtn.disabled = true;
+    status.textContent = 'Sending…';
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      const body = await res.json().catch(() => null);
+      if (!res.ok || !body || body.success !== true) throw new Error('send failed');
+      status.textContent = 'Thanks. Your request has been sent. A person will reply with a quote before any work starts.';
+      form.reset();
+    } catch (err) {
+      notSent('Something went wrong.');
+    } finally {
+      sending = false;
+      sendBtn.disabled = false;
+    }
   });
 
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
