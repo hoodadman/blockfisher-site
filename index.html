@@ -681,75 +681,9 @@
     .intro-wave { opacity: .32; transform: none; }
     .intro-sub::before { transform: scaleX(1); }
   }
-  /* Product mockups: the extension card and the token scanner result.
-     Rules below copy blockfisher-token-extension src/ui/card.css (the scanner uses the same
-     score colours and triangle), scoped to .mock-bf so they never touch the rest of the page. */
-  .mock-bf {
-    --bf-bg: #ffffff; --bf-panel: #f4f6f9; --bf-text: #101828; --bf-muted: #5b6577; --bf-line: #dde2ea;
-    --bf-accent: #0b5cd5; --bf-green: #12805c; --bf-yellow: #a06a00; --bf-orange: #c2410c; --bf-red: #c0262d;
-    color: var(--bf-text); font: 13px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; text-align: left;
-  }
-  [data-theme="dark"] .mock-bf {
-    --bf-bg: #141a24; --bf-panel: #1c2430; --bf-text: #eef1f6; --bf-muted: #a3adbd; --bf-line: #2c3646;
-    --bf-accent: #4c8dff; --bf-green: #3ccf91; --bf-yellow: #f2c14e; --bf-orange: #ff9a52; --bf-red: #ff6b6b;
-  }
-  .mock-bf p { margin: 0 0 8px; }
-  .mock-bf .bf__muted, .mock-bf .bf__small { color: var(--bf-muted); }
-  .mock-bf .bf__small { font-size: 11px; }
-  .mock-bf .bf__report-title { margin-bottom: 6px; }
-  .mock-bf .bf__overall-label { margin: 0 0 8px; text-align: center; font-weight: 700; }
-  .mock-bf .bf-chart { --bf-tone: var(--bf-muted); position: relative; width: min(100%, 230px); margin: 0 auto 4px; aspect-ratio: 360 / 254; }
-  .mock-bf .bf-chart--green { --bf-tone: var(--bf-green); }
-  .mock-bf .bf-chart--yellow { --bf-tone: var(--bf-yellow); }
-  .mock-bf .bf-chart--orange { --bf-tone: var(--bf-orange); }
-  .mock-bf .bf-chart--red { --bf-tone: var(--bf-red); }
-  .mock-bf .bf-chart__svg { display: block; width: 100%; height: 100%; overflow: visible; }
-  .mock-bf .bf-chart__track { fill: var(--bf-panel); stroke: var(--bf-muted); stroke-opacity: .45; stroke-width: 1.5; }
-  .mock-bf .bf-chart__petal--green .bf-chart__fill { fill: var(--bf-green); }
-  .mock-bf .bf-chart__petal--yellow .bf-chart__fill { fill: var(--bf-yellow); }
-  .mock-bf .bf-chart__petal--orange .bf-chart__fill { fill: var(--bf-orange); }
-  .mock-bf .bf-chart__petal--red .bf-chart__fill { fill: var(--bf-red); }
-  .mock-bf .bf-chart__label { fill: var(--bf-text); font: 700 15px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-  .mock-bf .bf-chart__ring { fill: none; stroke: var(--bf-tone); stroke-width: 5; }
-  .mock-bf .bf-chart__core { fill: var(--bf-bg); stroke: var(--bf-line); }
-  .mock-bf .bf-chart__centre { position: absolute; left: 50%; top: calc((168 - 4) / 254 * 100%); display: flex; flex-direction: column; align-items: center; transform: translate(-50%, -50%); }
-  .mock-bf .bf__overall-value { color: var(--bf-tone); font-size: 26px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
-  .mock-bf .bf-chart__max { margin-top: 2px; color: var(--bf-muted); font-size: 9px; font-weight: 600; }
-  .mock-bf .bf__scores { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 8px; }
-  .mock-bf .bf__score { display: flex; flex-direction: column; align-items: center; padding: 5px; background: var(--bf-panel); border-radius: 8px; }
-  .mock-bf .bf__score-value { font-size: 17px; font-weight: 700; line-height: 1.3; }
-  .mock-bf .bf__score-label { font-size: 11px; color: var(--bf-muted); }
-  .mock-bf .bf__info { margin-left: 3px; font-size: 10px; }
-  .mock-bf .bf__score--green { color: var(--bf-green); }
-  .mock-bf .bf__score--yellow { color: var(--bf-yellow); }
-  .mock-bf .bf__score--orange { color: var(--bf-orange); }
-  .mock-bf .bf__score--red { color: var(--bf-red); }
-  .mock-bf .bf__issues { margin: 0 0 8px; padding-left: 16px; }
-  .mock-bf .bf__issue { margin-bottom: 3px; }
-  .mock-bf .bf__issue--critical strong { color: var(--bf-red); }
-  .mock-bf .bf__issue--warning strong { color: var(--bf-orange); }
-  .mock-bf .bf__brief p { margin: 0 0 4px; }
-  .mock-bf .bf__link { font-weight: 600; text-decoration: underline; }
-  .mock-bf .bf__contract { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 8px; margin: -2px 0 6px; }
-  .mock-bf .bf__contract-label { flex-basis: 100%; color: var(--bf-muted); font-size: 10px; letter-spacing: .04em; text-transform: uppercase; }
-  .mock-bf .bf__contract-address { min-width: 0; flex: 1; font: 10.5px ui-monospace, SFMono-Regular, Menlo, monospace; overflow-wrap: anywhere; }
-  .mock-bf .bf__rows { margin: 0 0 6px; padding: 0; list-style: none; }
-  .mock-bf .bf__row { margin-bottom: 3px; padding-left: 1.4em; text-indent: -1.4em; }
-  .mock-bf .bf__mark { display: inline-block; width: 1.4em; font-weight: 700; text-indent: 0; }
-  .mock-bf .bf__row--pass .bf__mark { color: var(--bf-green); }
-  .mock-bf .bf__row--issue .bf__mark { color: var(--bf-red); }
-  .mock-bf .bf__row--unknown .bf__mark { color: var(--bf-muted); }
 
   /* The extension card, as it sits over the token page (top right, like the content script). */
-  .mock-ext {
-    position: absolute; top: 12px; right: 12px; width: 272px; max-width: calc(100% - 24px);
-    background: var(--bf-bg); border: 1px solid var(--bf-line); border-radius: 14px;
-    box-shadow: 0 12px 32px rgb(0 0 0 / 35%); overflow: hidden;
-  }
-  .mock-ext .bf__bar { display: flex; align-items: center; justify-content: space-between; padding: 7px 12px; border-bottom: 1px solid var(--bf-line); }
-  .mock-ext .bf__brand { font-weight: 700; }
-  .mock-ext .bf__close { color: var(--bf-muted); font-size: 18px; line-height: 1; }
-  .mock-ext .bf__body { padding: 10px 12px 6px; }
+  .mock-ext { position: absolute; top: 12px; right: 12px; width: 330px; max-width: calc(100% - 24px); }
   .browser-page { position: relative; min-height: 640px; padding: 14px; }
   .dex { width: 58%; display: grid; gap: 12px; }
   .dex-head { display: flex; align-items: baseline; gap: 6px; font-size: .82rem; color: rgba(214,207,197,.6); }
@@ -764,20 +698,8 @@
   .ext-ico svg { width: 18px; height: 18px; }
 
   /* The token scanner result in the "Sample read" board. */
-  .mock-scan { font-size: 14px; }
-  .mock-scan .bf-chart { width: min(100%, 300px); margin-top: 6px; }
-  .mock-scan .bf__overall-value { font-size: 32px; }
-  .mock-scan .bf-chart__max { font-size: 10px; }
-  .mock-scan .bf__score-value { font-size: 20px; }
-  .mock-scan .bf__score-label { font-size: 12px; }
-  .scan-logo { display: inline-flex; align-items: center; gap: 6px; color: var(--bf-text); font: 600 15px "Outfit", system-ui, sans-serif; }
+  .scan-logo { display: inline-flex; align-items: center; gap: 6px; color: inherit; font: 600 15px "Outfit", system-ui, sans-serif; }
   .scan-logo svg { width: 22px; height: 22px; }
-  .scan-box { padding: 12px 14px; margin-bottom: 12px; background: var(--bf-bg); border: 1px solid var(--bf-line); border-radius: 12px; }
-  .scan-box p { margin: 0 0 4px; }
-  .scan-blue { color: var(--bf-accent); font-weight: 600; }
-  .scan-head { display: block; margin: 10px 0 2px; color: var(--bf-muted); font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
-  .scan-head:first-child { margin-top: 0; }
-  .mock-scan .scan-box .bf__issues, .mock-scan .scan-box .bf__rows { margin-bottom: 0; }
   .legend .sw.tone-yellow { background: #f2c14e; }
   .legend .sw.tone-orange { background: #ff9a52; }
   [data-theme="light"] .legend .sw.tone-yellow { background: #a06a00; }
@@ -790,16 +712,8 @@
     .mock-ext { top: 64px; left: 50%; right: auto; transform: translateX(-50%); }
   }
 
-  /* Scan animation on the real scanner result (v3 design's "Replay scan") */
+  /* Scan animation on the real scanner result (v3 design's "Replay scan"); its own styles live in the mock's shadow root. */
   .board-head .scan-logo small { margin-left: 8px; color: var(--muted); font: 400 .78rem "Outfit", system-ui, sans-serif; }
-  .mock-scan .bf-chart__fill { transform-box: view-box; transform-origin: 180px 168px; transition: transform .9s cubic-bezier(.2,.9,.3,1.15), opacity .4s ease; }
-  .mock-scan .bf-chart__petal:nth-of-type(2) .bf-chart__fill { transition-delay: .12s; }
-  .mock-scan .bf-chart__petal:nth-of-type(3) .bf-chart__fill { transition-delay: .24s; }
-  .mock-scan .scan-beam { opacity: 0; transform-box: view-box; }
-  .mock-scan .scan-spin { opacity: 0; transform-box: view-box; transform-origin: 180px 168px; transition: opacity .3s; fill: none; stroke: var(--bf-accent); stroke-width: 2; stroke-linecap: round; }
-  .board.scan-run:not(.scan-done) .mock-scan .bf-chart__fill { transform: scale(0); opacity: 0; transition: none; }
-  .mock-scan .scan-item { transition: opacity .45s ease, transform .45s ease; }
-  .board.scan-run .mock-scan .scan-item.pending { opacity: .18; transform: translateY(4px); transition: none; }
 </style>
 </head>
 <body>
@@ -967,7 +881,782 @@
               </div>
               <div class="dex-rows"><i></i><i></i><i></i><i></i><i></i><i></i></div>
             </div>
-            <div class="mock-bf mock-ext"><div class="bf__bar"><span class="bf__brand">Blockfisher</span><span class="bf__close">×</span></div><div class="bf__body"><section class="bf__report"><div class="bf__report-title"><strong>TIDE</strong><span class="bf__muted"> on Solana</span></div><p class="bf__contract"><span class="bf__contract-label">Contract address</span><code class="bf__contract-address">Tide7xQk3vN9pWm2hR5sLc8YbJf4uDgE1aKoZt6PqHnM</code><span class="bf__link bf__copy">Copy</span></p><div class="bf-chart bf-chart--orange"><svg viewBox="0 4 360 254" class="bf-chart__svg"><g class="bf-chart__petal bf-chart__petal--yellow"><polygon class="bf-chart__track" points="180.0,40.0 145.3,116.6 214.7,116.6"></polygon><polygon class="bf-chart__fill" points="180.0,61.4 145.3,116.6 214.7,116.6"></polygon><text class="bf-chart__label" x="180.0" y="18.0" text-anchor="middle" dominant-baseline="middle">Security</text></g><g class="bf-chart__petal bf-chart__petal--orange"><polygon class="bf-chart__track" points="290.9,232.0 241.8,163.7 207.2,223.7"></polygon><polygon class="bf-chart__fill" points="251.7,209.4 241.8,163.7 207.2,223.7"></polygon><text class="bf-chart__label" x="309.9" y="243.0" text-anchor="middle" dominant-baseline="middle">Community</text></g><g class="bf-chart__petal bf-chart__petal--orange"><polygon class="bf-chart__track" points="69.1,232.0 152.8,223.7 118.2,163.7"></polygon><polygon class="bf-chart__fill" points="102.3,212.9 152.8,223.7 118.2,163.7"></polygon><text class="bf-chart__label" x="50.1" y="243.0" text-anchor="middle" dominant-baseline="middle">Foundation</text></g><circle class="bf-chart__ring" cx="180" cy="168" r="50"></circle><circle class="bf-chart__core" cx="180" cy="168" r="46"></circle></svg><div class="bf-chart__centre"><span class="bf__overall-value" data-count="54">54</span><span class="bf-chart__max">out of 100</span></div></div><p class="bf__overall-label bf__score--orange">Medium risk</p><div class="bf__scores"><div class="bf__score bf__score--yellow"><span class="bf__score-value">72</span><span class="bf__score-label">Security<span class="bf__info">ⓘ</span></span></div><div class="bf__score bf__score--orange"><span class="bf__score-value">41</span><span class="bf__score-label">Community<span class="bf__info">ⓘ</span></span></div><div class="bf__score bf__score--orange"><span class="bf__score-value">50</span><span class="bf__score-label">Foundation<span class="bf__info">ⓘ</span></span></div></div><ul class="bf__issues"><li class="bf__issue bf__issue--critical"><strong>Top holders own a lot</strong><span> The top 10 wallets hold 41% of supply.</span></li><li class="bf__issue bf__issue--warning"><strong>Owner not renounced</strong><span> The creator can still change some settings.</span></li></ul><div class="bf__brief"><p>Security looks mostly fine; holders are a bit concentrated.</p><p>A small but real following.</p><p>Young project with docs.</p></div><p><span class="bf__link">View full scan</span> ▾</p><p class="bf__small">Not financial advice. A low-risk score doesn’t mean a token will go up.</p></section></div></div>
+            <div class="mock-ext" data-theme="dark" role="img" aria-label="Example Blockfisher extension card with made-up numbers: TIDE on Solana scores 54 out of 100, medium risk."><template shadowrootmode="open"><style>:host { display: block; }
+.bf {
+  position: relative;
+  --bf-bg: #ffffff;
+  --bf-panel: #f4f6f9;
+  --bf-raised: #ffffff;
+  --bf-text: #0d1b2a;
+  --bf-muted: #5a6879;
+  --bf-line: #e2e7ee;
+  --bf-accent: #157a85;
+  --bf-accent-hover: #11666f;
+  --bf-accent-text: #ffffff;
+  --bf-accent-soft: rgb(21 122 133 / 10%);
+  --bf-green: #12805c;
+  --bf-yellow: #a06a00;
+  --bf-orange: #c2410c;
+  --bf-red: #c0262d;
+  --bf-shadow: 0 1px 2px rgb(13 27 42 / 6%), 0 16px 40px -8px rgb(13 27 42 / 22%);
+  --bf-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --bf-ease: cubic-bezier(0.2, 0.7, 0.3, 1);
+  width: min(380px, calc(100vw - 24px));
+  max-height: calc(100vh - 32px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bf-line) transparent;
+  color: var(--bf-text);
+  background: var(--bf-bg);
+  border: 1px solid var(--bf-line);
+  border-radius: 16px;
+  box-shadow: var(--bf-shadow);
+  font: 14px/1.5 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+  animation: bf-enter 0.34s var(--bf-ease) both;
+}
+@media all {
+  :host([data-theme="dark"]) .bf {
+    --bf-bg: #0f1722;
+    --bf-panel: #16202d;
+    --bf-raised: #1a2533;
+    --bf-text: #e8edf3;
+    --bf-muted: #8d9aad;
+    --bf-line: #243142;
+    --bf-accent: #3fb8c4;
+    --bf-accent-hover: #5cc6d1;
+    --bf-accent-text: #062027;
+    --bf-accent-soft: rgb(63 184 196 / 12%);
+    --bf-green: #3ccf91;
+    --bf-yellow: #f2c14e;
+    --bf-orange: #ff9a52;
+    --bf-red: #ff6b6b;
+    --bf-shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 20px 48px -12px rgb(0 0 0 / 60%);
+  }
+}
+.bf *,
+.bf *::before,
+.bf *::after {
+  box-sizing: border-box;
+}
+.bf button { font: inherit; }
+.bf :focus-visible { outline: 2px solid var(--bf-accent); outline-offset: 2px; }
+.bf__bar {
+  position: sticky;
+  top: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 10px 10px 14px;
+  background: color-mix(in srgb, var(--bf-bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--bf-line);
+}
+.bf__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 13.5px;
+  letter-spacing: -0.005em;
+}
+.bf__logo {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--bf-accent);
+  color: var(--bf-accent-text);
+}
+.bf__logo svg { display: block; }
+.bf__close {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--bf-muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.bf__close:hover { background: var(--bf-panel); color: var(--bf-text); }
+.bf__body {
+  padding: 16px;
+}
+.bf__body p {
+  margin: 0 0 10px;
+}
+.bf__question {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+}
+.bf__list {
+  list-style: none;
+  margin: 12px 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.bf__pick {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 12px;
+  border: 1px solid var(--bf-line);
+  border-radius: 11px;
+  background: var(--bf-raised);
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.bf__pick:hover { border-color: color-mix(in srgb, var(--bf-accent) 45%, var(--bf-line)); }
+.bf__pick:has(input:checked) { border-color: var(--bf-accent); background: var(--bf-accent-soft); }
+.bf__pick input,
+.bf__remember input {
+  flex: none;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--bf-accent);
+}
+.bf__remember {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  border-top: 1px solid var(--bf-line);
+  color: var(--bf-muted);
+  cursor: pointer;
+}
+.bf__address,
+.bf__muted,
+.bf__small {
+  color: var(--bf-muted);
+}
+.bf__address {
+  margin-left: auto;
+  font: 400 12px var(--bf-mono);
+}
+.bf__small {
+  font-size: 12px;
+}
+.bf__note {
+  padding: 9px 11px;
+  background: var(--bf-panel);
+  border: 1px solid var(--bf-line);
+  border-radius: 10px;
+  font-size: 13px;
+}
+.bf__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+.bf__primary,
+.bf__secondary {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 38px;
+  padding: 0 14px;
+  border-radius: 10px;
+  font: inherit;
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, transform 0.08s, opacity 0.15s;
+}
+.bf__primary:active:not(:disabled),
+.bf__secondary:active:not(:disabled) { transform: scale(0.98); }
+.bf__primary:disabled,
+.bf__secondary:disabled { cursor: default; opacity: 0.55; }
+.bf__primary {
+  color: var(--bf-accent-text);
+  background: var(--bf-accent);
+  border: 1px solid var(--bf-accent);
+}
+.bf__primary:hover:not(:disabled) { background: var(--bf-accent-hover); }
+.bf__secondary {
+  color: var(--bf-text);
+  background: transparent;
+  border: 1px solid var(--bf-line);
+}
+.bf__secondary:hover:not(:disabled) { background: var(--bf-panel); }
+.bf__more {
+  width: 100%;
+  margin-top: 16px;
+}
+.bf__loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--bf-panel);
+  border: 1px solid var(--bf-line);
+  border-radius: 12px;
+}
+.bf__loading::before {
+  content: '';
+  flex: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--bf-accent);
+  border-top-color: transparent;
+  animation: bf-spin 0.7s linear infinite;
+}
+.bf__loading::after {
+  content: '…';
+}
+.bf__report + .bf__report {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--bf-line);
+}
+.bf__report-title {
+  margin-bottom: 2px;
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+.bf__report-title strong { font-weight: 600; }
+.bf__report-title .bf__muted { font-size: 14px; }
+.bf__checked {
+  margin-top: 10px;
+}
+.bf__link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--bf-accent);
+  font: inherit;
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  transition: text-decoration-color 0.15s;
+}
+.bf__link:hover:not(:disabled) { text-decoration-color: currentColor; }
+.bf__link:disabled {
+  color: var(--bf-muted);
+  cursor: default;
+  text-decoration: none;
+}
+.bf__contract {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 8px;
+  margin: 10px 0 4px;
+  padding: 8px 8px 8px 10px;
+  border: 1px solid var(--bf-line);
+  border-radius: 10px;
+  background: var(--bf-panel);
+}
+.bf__contract-label {
+  flex-basis: 100%;
+  color: var(--bf-muted);
+  font: 500 10.5px/1 var(--bf-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.bf__contract-address {
+  flex: 1;
+  min-width: 0;
+  font: 12px/1.4 var(--bf-mono);
+  overflow-wrap: anywhere;
+}
+.bf__copy {
+  flex: none;
+  height: 26px;
+  padding: 0 9px;
+  border: 1px solid var(--bf-line);
+  border-radius: 7px;
+  background: var(--bf-bg);
+  color: var(--bf-text);
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.bf__copy:hover { border-color: var(--bf-muted); }
+.bf-chart {
+  --bf-tone: var(--bf-muted);
+  position: relative;
+  width: min(100%, 300px);
+  margin: 12px auto 4px;
+  aspect-ratio: 300 / 250;
+}
+.bf-chart--green { --bf-tone: var(--bf-green); }
+.bf-chart--yellow { --bf-tone: var(--bf-yellow); }
+.bf-chart--orange { --bf-tone: var(--bf-orange); }
+.bf-chart--red { --bf-tone: var(--bf-red); }
+.bf-chart__svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+.bf-sonar__grid { fill: none; stroke: var(--bf-line); stroke-width: 1; }
+.bf-sonar__grid--dash { stroke-dasharray: 2 4; }
+.bf-sonar__tick { stroke: var(--bf-line); stroke-width: 1; }
+.bf-sonar__tick--major { stroke: var(--bf-muted); opacity: 0.55; }
+.bf-sonar__track { fill: var(--bf-panel); stroke: none; }
+path.bf-sonar__sector { fill-opacity: 0.16; stroke: none; }
+path.bf-sonar__echo { fill: none; stroke-width: 2.5; stroke-linecap: round; }
+.bf-sonar__blip {
+  stroke: var(--bf-bg);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bf-blip 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) both;
+}
+.bf-sonar__sweep {
+  fill: var(--bf-accent);
+  transform-box: view-box;
+  transform-origin: 150px 120px;
+  opacity: 0;
+  animation: bf-sweep 1.3s cubic-bezier(0.45, 0.1, 0.4, 1) both;
+}
+.bf-tone--green { fill: var(--bf-green); stroke: var(--bf-green); }
+.bf-tone--yellow { fill: var(--bf-yellow); stroke: var(--bf-yellow); }
+.bf-tone--orange { fill: var(--bf-orange); stroke: var(--bf-orange); }
+.bf-tone--red { fill: var(--bf-red); stroke: var(--bf-red); }
+.bf-tone--none { fill: var(--bf-muted); stroke: var(--bf-muted); }
+.bf-chart__label {
+  fill: var(--bf-muted);
+  font: 500 10px var(--bf-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.bf-chart__label-value {
+  font: 600 12px var(--bf-mono);
+  stroke: none;
+}
+.bf-chart__core { fill: var(--bf-bg); stroke: var(--bf-line); stroke-width: 1; }
+.bf-chart__ring-track { fill: none; stroke: var(--bf-line); stroke-width: 3; }
+.bf-chart__ring { fill: none; stroke: var(--bf-tone); stroke-width: 3; stroke-linecap: round; }
+.bf-chart__centre {
+  position: absolute;
+  left: 50%;
+  top: calc(130 / 250 * 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.bf-chart__centre .bf__overall-value {
+  color: var(--bf-tone);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+.bf-chart__max {
+  margin-top: 3px;
+  color: var(--bf-muted);
+  font: 500 9px/1 var(--bf-mono);
+}
+.bf__overall-label {
+  width: fit-content;
+  margin: 2px auto 14px !important;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  font-weight: 600;
+  text-align: center;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  border: 1px solid color-mix(in srgb, currentColor 30%, transparent);
+}
+.bf__scores {
+  margin-bottom: 4px;
+  border: 1px solid var(--bf-line);
+  border-radius: 12px;
+}
+.bf__score {
+  position: relative;
+  display: block;
+  padding: 11px 12px;
+  color: var(--bf-muted);
+  cursor: help;
+}
+.bf__score + .bf__score { border-top: 1px solid var(--bf-line); }
+.bf__score:focus-visible { outline-offset: -2px; border-radius: 12px; }
+.bf__score-head {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.bf__score-label {
+  display: inline-flex;
+  align-items: center;
+  color: var(--bf-text);
+  font-size: 13.5px;
+  font-weight: 600;
+}
+.bf__info {
+  display: inline-grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  margin-left: 4px;
+  color: var(--bf-muted);
+  font-size: 12px;
+  font-weight: 400;
+}
+.bf__score-value {
+  margin-left: auto;
+  font-size: 14px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.bf__score-max {
+  color: var(--bf-muted);
+  font: 500 11px var(--bf-mono);
+}
+.bf__score-bar {
+  display: block;
+  height: 4px;
+  margin: 7px 0 6px;
+  border-radius: 999px;
+  background: var(--bf-panel);
+  overflow: hidden;
+}
+.bf__score-bar span {
+  display: block;
+  height: 100%;
+  width: var(--w);
+  border-radius: inherit;
+  background: currentColor;
+  transform-origin: left;
+  animation: bf-bar 0.9s var(--bf-ease) var(--d, 0s) both;
+}
+.bf__score-note {
+  display: block;
+  color: var(--bf-muted);
+  font-size: 12.5px;
+  line-height: 1.45;
+}
+.bf__score--green { color: var(--bf-green); }
+.bf__score--yellow { color: var(--bf-yellow); }
+.bf__score--orange { color: var(--bf-orange); }
+.bf__score--red { color: var(--bf-red); }
+.bf__score--none { color: var(--bf-muted); }
+.bf__section-title {
+  margin: 16px 0 8px;
+  color: var(--bf-muted);
+  font: 500 10.5px/1 var(--bf-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.bf__report > .bf__issues {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 12px;
+  padding: 0;
+}
+.bf__report > .bf__issues .bf__issue {
+  --sev: var(--bf-yellow);
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+  background: color-mix(in srgb, var(--sev) 9%, transparent);
+  border: 1px solid color-mix(in srgb, var(--sev) 28%, transparent);
+}
+.bf__report > .bf__issues .bf__issue strong {
+  display: block;
+  color: var(--sev);
+  font-weight: 600;
+}
+.bf__report > .bf__issues .bf__issue--critical { --sev: var(--bf-red); }
+.bf__report > .bf__issues .bf__issue--warning { --sev: var(--bf-orange); }
+.bf__issue-icon { flex: none; margin-top: 1px; color: var(--sev); }
+.bf__issue-icon svg { display: block; }
+.bf__fatal {
+  margin: 0 0 12px !important;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--bf-red) 9%, transparent);
+  border: 1px solid color-mix(in srgb, var(--bf-red) 35%, transparent);
+  font-size: 13px;
+}
+.bf__fatal strong {
+  color: var(--bf-red);
+}
+.bf__cap {
+  margin: 0 0 12px !important;
+  padding: 10px 12px;
+  border: 1px solid color-mix(in srgb, var(--bf-accent) 45%, transparent);
+  border-radius: 10px;
+  background: var(--bf-accent-soft);
+  font-size: 13px;
+}
+.bf__full {
+  margin: 4px 0 12px;
+  border: 1px solid var(--bf-line);
+  border-radius: 12px;
+}
+.bf__full-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 12px;
+  border-radius: 12px;
+  color: var(--bf-text);
+  font-weight: 600;
+  font-size: 13.5px;
+  text-decoration: none;
+  list-style: none;
+  transition: background 0.15s;
+}
+.bf__full-toggle:hover { background: var(--bf-panel); }
+.bf__full-toggle::-webkit-details-marker {
+  display: none;
+}
+.bf__full-toggle::after {
+  content: '\25BE';
+  color: var(--bf-muted);
+  transition: transform 0.24s var(--bf-ease);
+}
+.bf__full[open] > .bf__full-toggle::after {
+  transform: rotate(180deg);
+}
+.bf__full > :not(summary) {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.bf__full > :last-child { margin-bottom: 10px; }
+.bf__full-part {
+  margin-top: 0;
+  padding: 10px 0;
+  border-top: 1px solid var(--bf-line);
+}
+.bf__full-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin: 0 0 6px;
+  color: var(--bf-muted);
+  font: 500 10.5px/1 var(--bf-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.bf__full .bf__issues {
+  margin: 0 0 8px;
+  padding-left: 18px;
+  font-size: 13px;
+}
+.bf__full .bf__issue { margin-bottom: 4px; }
+.bf__full .bf__issue--critical strong { color: var(--bf-red); }
+.bf__full .bf__issue--warning strong { color: var(--bf-orange); }
+.bf__detail {
+  display: block;
+  margin-top: 2px;
+  color: var(--bf-muted);
+  font-size: 12px;
+}
+.bf__rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.bf__rows--plain {
+  display: block;
+  padding-left: 18px;
+  list-style: disc;
+}
+.bf__rows--plain li { margin-bottom: 4px; }
+.bf__row {
+  display: block;
+  padding-left: 24px;
+  text-indent: -24px;
+}
+.bf__mark {
+  display: inline-grid;
+  place-items: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+  border-radius: 50%;
+  text-indent: 0;
+  font-size: 10px;
+  font-weight: 800;
+  line-height: 1;
+  vertical-align: -2px;
+  background: var(--bf-panel);
+}
+.bf__row--pass .bf__mark,
+.bf__row--good .bf__mark {
+  color: var(--bf-green);
+  background: color-mix(in srgb, var(--bf-green) 14%, transparent);
+}
+.bf__row--mid .bf__mark {
+  color: var(--bf-yellow);
+  background: color-mix(in srgb, var(--bf-yellow) 16%, transparent);
+}
+.bf__row--issue .bf__mark,
+.bf__row--bad .bf__mark {
+  color: var(--bf-red);
+  background: color-mix(in srgb, var(--bf-red) 14%, transparent);
+}
+.bf__row--unknown .bf__mark {
+  color: var(--bf-muted);
+}
+.bf__info-button {
+  display: inline-grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 50%;
+  color: var(--bf-muted);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1;
+  letter-spacing: 0;
+  cursor: help;
+}
+.bf__info-button:hover { color: var(--bf-text); background: var(--bf-panel); }
+.bf__tip {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: -4px;
+  right: -4px;
+  z-index: 5;
+  display: none;
+  padding: 10px 12px;
+  background: var(--bf-text);
+  border-radius: 10px;
+  box-shadow: 0 12px 28px -8px rgb(0 0 0 / 35%);
+  color: var(--bf-bg);
+  font: 400 12.5px/1.5 system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  letter-spacing: normal;
+  text-align: left;
+  text-indent: 0;
+  text-transform: none;
+}
+.bf__has-tip:hover > .bf__tip,
+.bf__has-tip:focus-visible > .bf__tip,
+.bf__tip-open > .bf__tip {
+  display: block;
+}
+.bf__score > .bf__tip { left: 8px; right: 8px; top: calc(100% - 4px); }
+.bf-dive {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  overflow: hidden;
+  border-radius: inherit;
+  pointer-events: none;
+  animation: bf-dive-clear 0.8s ease-out 1.5s forwards;
+}
+.bf-dive__water {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 112%;
+  background: linear-gradient(180deg, rgb(30 138 149 / 38%) 0%, rgb(21 89 98 / 48%) 50%, rgb(13 27 42 / 60%) 100%);
+  backdrop-filter: saturate(0.85);
+  transform: translateY(105%);
+  animation: bf-dive-rise 0.75s cubic-bezier(0.3, 0.7, 0.3, 1) forwards;
+}
+.bf-dive__wave {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  display: flex;
+  width: 200%;
+  height: 14px;
+  margin-bottom: -1px;
+  animation: bf-dive-wave 0.9s linear infinite;
+}
+.bf-dive__wave svg {
+  flex: 1 0 50%;
+  height: 100%;
+}
+.bf-dive__wave path {
+  fill: rgb(30 138 149 / 38%);
+}
+.bf-dive__bubble {
+  position: absolute;
+  bottom: -12px;
+  border: 1.5px solid rgb(255 255 255 / 55%);
+  border-radius: 50%;
+  background: rgb(255 255 255 / 12%);
+  opacity: 0;
+  animation: bf-dive-bubble 1.3s ease-in forwards;
+}
+.bf--dive .bf__body {
+  animation: bf-dive-surface 1.4s ease-out 0.35s both;
+}
+@keyframes bf-dive-rise {
+  to { transform: translateY(-6%); }
+}
+@keyframes bf-dive-wave {
+  to { transform: translateX(-50%); }
+}
+@keyframes bf-dive-bubble {
+  0% { opacity: 0; transform: translateY(0) scale(0.6); }
+  15% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-420px) translateX(6px) scale(1.1); }
+}
+@keyframes bf-dive-clear {
+  to { opacity: 0; }
+}
+@keyframes bf-dive-surface {
+  from { opacity: 0.55; filter: blur(4px); transform: translateY(6px); }
+  to { opacity: 1; filter: none; transform: none; }
+}
+@keyframes bf-enter { from { opacity: 0; transform: translateY(-10px) scale(0.98); } }
+@keyframes bf-spin { to { transform: rotate(360deg); } }
+@keyframes bf-bar { from { transform: scaleX(0); } }
+@keyframes bf-blip { from { opacity: 0; transform: scale(0.2); } to { opacity: 1; transform: scale(1); } }
+@keyframes bf-sweep {
+  0% { opacity: 0; transform: rotate(0deg); }
+  12% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(360deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bf { animation: none; }
+  .bf-sonar__sweep { display: none; }
+  .bf-sonar__blip,
+  .bf__score-bar span { animation: none; }
+  .bf__loading::before { animation-duration: 2.4s; }
+}
+
+.bf { width: 100%; max-height: 600px; }
+</style><div aria-hidden="true"><div class="bf" role="dialog" aria-label="Blockfisher token scan"><div class="bf__bar"><span class="bf__brand"><span class="bf__logo" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c3-4.5 7-6 10.5-6C18 6 21 9.5 21 12s-3 6-7.5 6C10 18 6 16.5 3 12Z"></path><path d="M3 12 1 9m2 3-2 3"></path><circle cx="16" cy="11" r="0.6" fill="currentColor"></circle></svg></span>Blockfisher</span><button class="bf__close" type="button" aria-label="Close" tabindex="-1">×</button></div><div class="bf__body"><section class="bf__report" data-index="0"><div class="bf__report-title"><strong>TIDE</strong><span class="bf__muted"> on Solana</span></div><p class="bf__contract"><span class="bf__contract-label">Contract address</span><code class="bf__contract-address">Tide7xQk3vN9pWm2hR5sLc8YbJf4uDgE1aKoZt6PqHnM</code><button class="bf__link bf__copy" type="button" aria-label="Copy contract address" tabindex="-1">Copy</button></p><div class="bf-chart bf-chart--orange"><svg viewBox="0 -10 300 250" class="bf-chart__svg" role="img" aria-label="Overall 54 out of 100. Security 72, Community 41, Foundation 50."><g aria-hidden="true"><circle class="bf-sonar__grid bf-sonar__grid--dash" cx="150" cy="120" r="53"></circle><circle class="bf-sonar__grid bf-sonar__grid--dash" cx="150" cy="120" r="66"></circle><circle class="bf-sonar__grid bf-sonar__grid--dash" cx="150" cy="120" r="79"></circle><circle class="bf-sonar__grid" cx="150" cy="120" r="92"></circle><line class="bf-sonar__tick bf-sonar__tick--major" x1="150.0" y1="25.0" x2="150.0" y2="19.0"></line><line class="bf-sonar__tick" x1="166.5" y1="26.4" x2="167.0" y2="23.5"></line><line class="bf-sonar__tick" x1="182.5" y1="30.7" x2="183.5" y2="27.9"></line><line class="bf-sonar__tick bf-sonar__tick--major" x1="197.5" y1="37.7" x2="200.5" y2="32.5"></line><line class="bf-sonar__tick" x1="211.1" y1="47.2" x2="213.0" y2="44.9"></line><line class="bf-sonar__tick" x1="222.8" y1="58.9" x2="225.1" y2="57.0"></line><line class="bf-sonar__tick bf-sonar__tick--major" x1="232.3" y1="72.5" x2="237.5" y2="69.5"></line><line class="bf-sonar__tick" x1="239.3" y1="87.5" x2="242.1" y2="86.5"></line><line class="bf-sonar__tick" x1="243.6" y1="103.5" x2="246.5" y2="103.0"></line><line class="bf-sonar__tick bf-sonar__tick--major" x1="245.0" y1="120.0" x2="251.0" y2="120.0"></line><line class="bf-sonar__tick" x1="243.6" y1="136.5" x2="246.5" y2="137.0"></line><line class="bf-sonar__tick" x1="239.3" y1="152.5" x2="242.1" y2="153.5"></line><line class="bf-sonar__tick bf-sonar__tick--major" x1="232.3" y1="167.5" x2="237.5" y2="170.5"></line><line class="bf-sonar__tick" x1="222.8" y1="181.1" x2="225.1" y2="183.0"></line><line class="bf-sonar__tick" x1="211.1" y1="192.8" x2="213.0" y2="195.1"></line><line class="bf-sonar__tick bf-sonar__tick--major" x1="197.5" y1="202.3" x2="200.5" y2="207.5"></line><line class="bf-sonar__tick" x1="182.5" y1="209.3" x2="183.5" y2="212.1"></line><line class="bf-sonar__tick" x1="166.5" y1="213.6" x2="167.0" y2="216.5"></line><line class="bf-sonar__tick bf-sonar__tick--major" x1="150.0" y1="215.0" x2="150.0" y2="221.0"></line><line class="bf-sonar__tick" x1="133.5" y1="213.6" x2="133.0" y2="216.5"></line><line class="bf-sonar__tick" x1="117.5" y1="209.3" x2="116.5" y2="212.1"></line><line class="bf-sonar__tick bf-sonar__tick--major" x1="102.5" y1="202.3" x2="99.5" y2="207.5"></line><line class="bf-sonar__tick" x1="88.9" y1="192.8" x2="87.0" y2="195.1"></line><line class="bf-sonar__tick" x1="77.2" y1="181.1" x2="74.9" y2="183.0"></line><line class="bf-sonar__tick bf-sonar__tick--major" x1="67.7" y1="167.5" x2="62.5" y2="170.5"></line><line class="bf-sonar__tick" x1="60.7" y1="152.5" x2="57.9" y2="153.5"></line><line class="bf-sonar__tick" x1="56.4" y1="136.5" x2="53.5" y2="137.0"></line><line class="bf-sonar__tick bf-sonar__tick--major" x1="55.0" y1="120.0" x2="49.0" y2="120.0"></line><line class="bf-sonar__tick" x1="56.4" y1="103.5" x2="53.5" y2="103.0"></line><line class="bf-sonar__tick" x1="60.7" y1="87.5" x2="57.9" y2="86.5"></line><line class="bf-sonar__tick bf-sonar__tick--major" x1="67.7" y1="72.5" x2="62.5" y2="69.5"></line><line class="bf-sonar__tick" x1="77.2" y1="58.9" x2="74.9" y2="57.0"></line><line class="bf-sonar__tick" x1="88.9" y1="47.2" x2="87.0" y2="44.9"></line><line class="bf-sonar__tick bf-sonar__tick--major" x1="102.5" y1="37.7" x2="99.5" y2="32.5"></line><line class="bf-sonar__tick" x1="117.5" y1="30.7" x2="116.5" y2="27.9"></line><line class="bf-sonar__tick" x1="133.5" y1="26.4" x2="133.0" y2="23.5"></line><line class="bf-sonar__grid" x1="181.2" y1="102.0" x2="229.7" y2="74.0"></line><line class="bf-sonar__grid" x1="150.0" y1="156.0" x2="150.0" y2="212.0"></line><line class="bf-sonar__grid" x1="118.8" y1="102.0" x2="70.3" y2="74.0"></line></g><g class="bf-chart__petal"><title>Security: 72 / 100. Is the token itself safe to buy and sell? We check its code for traps: whether you could be stopped from selling, hidden fees when you buy or sell, whether its makers can still change the rules or print more tokens, and whether a few wallets own most of it. Checked fresh on every scan.</title><path class="bf-sonar__track" d="M116.3 98.5 L72.4 70.6 A92 92 0 0 1 227.6 70.6 L183.7 98.5 A40 40 0 0 0 116.3 98.5Z"></path><path class="bf-sonar__sector bf-tone--yellow" d="M122.7 90.8 L97.1 63.4 A77.44 77.44 0 0 1 202.9 63.4 L177.3 90.8 A40 40 0 0 0 122.7 90.8Z" data-a="0" data-f="0.72"></path><path class="bf-sonar__echo bf-tone--yellow" d="M97.1 63.4 A77.44 77.44 0 0 1 202.9 63.4"></path><circle class="bf-sonar__blip bf-tone--yellow" cx="150.0" cy="42.6" r="4"></circle><text class="bf-chart__label" x="150" y="12" text-anchor="middle">Security<tspan class="bf-chart__label-value bf-tone--yellow" dx="6">72</tspan></text></g><g class="bf-chart__petal"><title>Community: 41 / 100. Are real people interested in it? We look at the token’s own X (Twitter) page: how many followers it has, how often it posts and how many people reply, plus how many real accounts are talking about it. Posts from bots are ignored.</title><path class="bf-sonar__track" d="M185.5 101.5 L231.6 77.5 A92 92 0 0 1 154.0 211.9 L151.7 160.0 A40 40 0 0 0 185.5 101.5Z"></path><path class="bf-sonar__sector bf-tone--orange" d="M189.9 122.0 L211.2 123.1 A61.32 61.32 0 0 1 183.3 171.5 L171.7 153.6 A40 40 0 0 0 189.9 122.0Z" data-a="120" data-f="0.41"></path><path class="bf-sonar__echo bf-tone--orange" d="M211.2 123.1 A61.32 61.32 0 0 1 183.3 171.5"></path><circle class="bf-sonar__blip bf-tone--orange" cx="203.1" cy="150.7" r="4"></circle><text class="bf-chart__label" x="234" y="232" text-anchor="middle">Community<tspan class="bf-chart__label-value bf-tone--orange" dx="6">41</tspan></text></g><g class="bf-chart__petal"><title>Foundation: 50 / 100. Is there a real project behind it? We check how long the token has been trading, whether it has a website and public docs, which big exchanges list it, and any well-known backers it names.</title><path class="bf-sonar__track" d="M148.3 160.0 L146.0 211.9 A92 92 0 0 1 68.4 77.5 L114.5 101.5 A40 40 0 0 0 148.3 160.0Z"></path><path class="bf-sonar__sector bf-tone--orange" d="M131.1 155.2 L118.8 178.1 A66 66 0 0 1 84.0 118.0 L110.0 118.8 A40 40 0 0 0 131.1 155.2Z" data-a="240" data-f="0.5"></path><path class="bf-sonar__echo bf-tone--orange" d="M118.8 178.1 A66 66 0 0 1 84.0 118.0"></path><circle class="bf-sonar__blip bf-tone--orange" cx="92.8" cy="153.0" r="4"></circle><text class="bf-chart__label" x="66" y="232" text-anchor="middle">Foundation<tspan class="bf-chart__label-value bf-tone--orange" dx="6">50</tspan></text></g><g class="bf-sonar__sweep" aria-hidden="true"><path d="M147.6 86.1 L143.6 28.2 A92 92 0 0 1 150.0 28.0 L150.0 86.0 A34 34 0 0 0 147.6 86.1Z" fill-opacity="0.320"></path><path d="M145.3 86.3 L137.2 28.9 A92 92 0 0 1 143.6 28.2 L147.6 86.1 A34 34 0 0 0 145.3 86.3Z" fill-opacity="0.288"></path><path d="M142.9 86.7 L130.9 30.0 A92 92 0 0 1 137.2 28.9 L145.3 86.3 A34 34 0 0 0 142.9 86.7Z" fill-opacity="0.256"></path><path d="M140.6 87.3 L124.6 31.6 A92 92 0 0 1 130.9 30.0 L142.9 86.7 A34 34 0 0 0 140.6 87.3Z" fill-opacity="0.224"></path><path d="M138.4 88.1 L118.5 33.5 A92 92 0 0 1 124.6 31.6 L140.6 87.3 A34 34 0 0 0 138.4 88.1Z" fill-opacity="0.192"></path><path d="M136.2 88.9 L112.6 36.0 A92 92 0 0 1 118.5 33.5 L138.4 88.1 A34 34 0 0 0 136.2 88.9Z" fill-opacity="0.160"></path><path d="M134.0 90.0 L106.8 38.8 A92 92 0 0 1 112.6 36.0 L136.2 88.9 A34 34 0 0 0 134.0 90.0Z" fill-opacity="0.128"></path><path d="M132.0 91.2 L101.2 42.0 A92 92 0 0 1 106.8 38.8 L134.0 90.0 A34 34 0 0 0 132.0 91.2Z" fill-opacity="0.096"></path><path d="M130.0 92.5 L95.9 45.6 A92 92 0 0 1 101.2 42.0 L132.0 91.2 A34 34 0 0 0 130.0 92.5Z" fill-opacity="0.064"></path><path d="M128.1 94.0 L90.9 49.5 A92 92 0 0 1 95.9 45.6 L130.0 92.5 A34 34 0 0 0 128.1 94.0Z" fill-opacity="0.032"></path></g><circle class="bf-chart__core" cx="150" cy="120" r="38"></circle><circle class="bf-chart__ring-track" cx="150" cy="120" r="34"></circle><circle class="bf-chart__ring" cx="150" cy="120" r="34" transform="rotate(-90 150 120)" stroke-dasharray="213.6" stroke-dashoffset="98.3" data-score="54"></circle></svg><div class="bf-chart__centre"><span class="bf__overall-value">54</span><span class="bf-chart__max">out of 100</span></div></div><p class="bf__overall-label bf__score--orange">Medium risk</p><div class="bf__scores"><div class="bf__score bf__score--yellow bf__has-tip" tabindex="-1" role="button" aria-label="Security: 72 out of 100. What does this mean?" aria-expanded="false"><span class="bf__score-head"><span class="bf__score-label">Security<span class="bf__info">ⓘ</span></span><span class="bf__score-value">72<small class="bf__score-max"> /100</small></span></span><span class="bf__score-bar" aria-hidden="true"><span style="--w: 72%; --d: 0s;"></span></span><span class="bf__score-note">Security looks mostly fine; holders are a bit concentrated.</span></div><div class="bf__score bf__score--orange bf__has-tip" tabindex="-1" role="button" aria-label="Community: 41 out of 100. What does this mean?" aria-expanded="false"><span class="bf__score-head"><span class="bf__score-label">Community<span class="bf__info">ⓘ</span></span><span class="bf__score-value">41<small class="bf__score-max"> /100</small></span></span><span class="bf__score-bar" aria-hidden="true"><span style="--w: 41%; --d: 0.15s;"></span></span><span class="bf__score-note">A small but real following.</span></div><div class="bf__score bf__score--orange bf__has-tip" tabindex="-1" role="button" aria-label="Foundation: 50 out of 100. What does this mean?" aria-expanded="false"><span class="bf__score-head"><span class="bf__score-label">Foundation<span class="bf__info">ⓘ</span></span><span class="bf__score-value">50<small class="bf__score-max"> /100</small></span></span><span class="bf__score-bar" aria-hidden="true"><span style="--w: 50%; --d: 0.3s;"></span></span><span class="bf__score-note">Young project with docs.</span></div></div><h4 class="bf__section-title">Flags</h4><ul class="bf__issues"><li class="bf__issue bf__issue--critical"><span class="bf__issue-icon" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"></path><path d="M12 9v4M12 17h.01"></path></svg></span><span class="bf__issue-text"><strong>Top holders own a lot</strong><span> The top 10 wallets hold 41% of supply.</span></span></li><li class="bf__issue bf__issue--warning"><span class="bf__issue-icon" aria-hidden="true"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"></path><path d="M12 9v4M12 17h.01"></path></svg></span><span class="bf__issue-text"><strong>Owner not renounced</strong><span> The creator can still change some settings.</span></span></li></ul><details class="bf__full"><summary class="bf__link bf__full-toggle">View full scan</summary><div class="bf__full-part"><h4 class="bf__full-title">Security<button class="bf__info-button bf__has-tip" type="button" aria-label="What does Security mean?" aria-expanded="false" tabindex="-1">ⓘ</button></h4><p class="bf__small">17 of 18 checks had data.</p><ul class="bf__issues"><li class="bf__issue bf__issue--critical"><strong>Top holders own a lot</strong><span> The top 10 wallets hold 41% of supply.</span></li><li class="bf__issue bf__issue--warning"><strong>Owner not renounced</strong><span> The creator can still change some settings.</span></li></ul></div><div class="bf__full-part"><h4 class="bf__full-title">Community<button class="bf__info-button bf__has-tip" type="button" aria-label="What does Community mean?" aria-expanded="false" tabindex="-1">ⓘ</button></h4><p>A small but real following.</p></div><div class="bf__full-part"><h4 class="bf__full-title">Foundation<button class="bf__info-button bf__has-tip" type="button" aria-label="What does Foundation mean?" aria-expanded="false" tabindex="-1">ⓘ</button></h4><p>Young project with docs.</p></div></details><p class="bf__small">Not financial advice. A low-risk score doesn’t mean a token will go up.</p></section></div></div></div></template></div>
           </div>
         </div>
       </div>
@@ -992,37 +1681,139 @@
         <div class="board-head"><span class="scan-logo"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M8 20c0-6 4-10 10-10 4 0 6 2 6 5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><path d="M22 11c2 1 4 3 4 6 0 2-1.2 3.2-2.8 3.2-1.4 0-2.4-1-2.4-2.2" fill="none" stroke="#3c7dff" stroke-width="2.2" stroke-linecap="round"/><circle cx="22.2" cy="15.2" r="1.2" fill="#3c7dff"/></svg>Blockfisher<small>Token scanner · example</small></span><button type="button" class="scan-replay" disabled><i data-lucide="rotate-ccw"></i>Replay scan</button></div>
         <div class="scan-bar" aria-hidden="true"><i></i></div>
         <p class="scan-status" aria-live="polite">Read complete · 2 things to look at</p>
-        <div class="mock-bf mock-scan" role="img" aria-label="Example token scanner result with made-up numbers: TIDE on Solana scores 54 out of 100, medium risk. Security 72, Community 41, Foundation 50. Top holders own a lot; the owner has not renounced; selling and minting checks passed; liquidity lock could not be checked.">
-          <div aria-hidden="true">
-            <div class="scan-box scan-item"><p><b>Pro scan.</b> Security checked now. Community checked now.</p><span class="scan-blue">Re-check</span></div>
-            <div class="bf__report-title"><strong>TIDE</strong><span class="bf__muted"> on Solana</span></div>
-            <div class="bf-chart bf-chart--orange"><svg viewBox="0 4 360 254" class="bf-chart__svg"><g class="bf-chart__petal bf-chart__petal--yellow"><polygon class="bf-chart__track" points="180.0,40.0 145.3,116.6 214.7,116.6"></polygon><polygon class="bf-chart__fill" points="180.0,61.4 145.3,116.6 214.7,116.6"></polygon><text class="bf-chart__label" x="180.0" y="18.0" text-anchor="middle" dominant-baseline="middle">Security</text></g><g class="bf-chart__petal bf-chart__petal--orange"><polygon class="bf-chart__track" points="290.9,232.0 241.8,163.7 207.2,223.7"></polygon><polygon class="bf-chart__fill" points="251.7,209.4 241.8,163.7 207.2,223.7"></polygon><text class="bf-chart__label" x="309.9" y="243.0" text-anchor="middle" dominant-baseline="middle">Community</text></g><g class="bf-chart__petal bf-chart__petal--orange"><polygon class="bf-chart__track" points="69.1,232.0 152.8,223.7 118.2,163.7"></polygon><polygon class="bf-chart__fill" points="102.3,212.9 152.8,223.7 118.2,163.7"></polygon><text class="bf-chart__label" x="50.1" y="243.0" text-anchor="middle" dominant-baseline="middle">Foundation</text></g><g class="scan-beam"><rect x="40" y="6" width="280" height="26" fill="url(#beamGlow)"/><rect x="40" y="31" width="280" height="1.5" rx=".75" fill="#2F7BFF"/></g><circle class="scan-spin" cx="180" cy="168" r="56" stroke-dasharray="44 308"/><circle class="bf-chart__ring" cx="180" cy="168" r="50"></circle><circle class="bf-chart__core" cx="180" cy="168" r="46"></circle></svg><div class="bf-chart__centre"><span class="bf__overall-value score-num">54</span><span class="bf-chart__max">out of 100</span></div></div>
-            <p class="bf__overall-label bf__score--orange scan-item">Medium risk</p>
-            <div class="bf__scores">
-              <div class="bf__score bf__score--yellow scan-item"><span class="bf__score-value" data-v="72">72</span><span class="bf__score-label">Security<span class="bf__info">ⓘ</span></span></div>
-              <div class="bf__score bf__score--orange scan-item"><span class="bf__score-value" data-v="41">41</span><span class="bf__score-label">Community<span class="bf__info">ⓘ</span></span></div>
-              <div class="bf__score bf__score--orange scan-item"><span class="bf__score-value" data-v="50">50</span><span class="bf__score-label">Foundation<span class="bf__info">ⓘ</span></span></div>
-            </div>
-            <div class="scan-box">
-              <span class="scan-head">Security ⓘ</span>
-              <p class="scan-item">Security looks mostly fine; holders are a bit concentrated.</p>
-              <ul class="bf__issues">
-                <li class="bf__issue bf__issue--critical scan-item"><strong>Top holders own a lot</strong> The top 10 wallets hold 41% of supply.</li>
-                <li class="bf__issue bf__issue--warning scan-item"><strong>Owner not renounced</strong> The creator can still change some settings.</li>
-              </ul>
-              <ul class="bf__rows">
-                <li class="bf__row bf__row--pass scan-item"><span class="bf__mark">✓</span><strong>Selling</strong> A test sell went through with no tax.</li>
-                <li class="bf__row bf__row--pass scan-item"><span class="bf__mark">✓</span><strong>Minting</strong> No one can make more tokens.</li>
-                <li class="bf__row bf__row--unknown scan-item"><span class="bf__mark">?</span><strong>Liquidity lock</strong> We couldn’t see if liquidity is locked.</li>
-              </ul>
-              <span class="scan-head">Community ⓘ</span>
-              <div class="scan-item"><p>A small but real following.</p><span class="scan-blue">See the details</span></div>
-              <span class="scan-head">Foundation ⓘ</span>
-              <div class="scan-item"><p>Young project with docs.</p><span class="scan-blue">See the details</span></div>
-            </div>
-            <p class="bf__small">Not financial advice. A low-risk score doesn’t mean a token will go up.</p>
-          </div>
-        </div>
+        <div class="mock-scan" data-theme="dark" role="img" aria-label="Example token scanner result with made-up numbers: TIDE on Solana scores 54 out of 100, medium risk. Security 72, Community 41, Foundation 50. Top holders own a lot; the owner has not renounced."><template shadowrootmode="open"><style>.plan-notes {margin: 0px 0px 1rem; padding: 0.85rem 1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-sink); font-size: 0.95rem;}
+.plan-notes p {margin: 0px;}
+.plan-notes__row {display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem 1rem;}
+.plan-notes__recheck {font-style: inherit; font-variant: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; font-weight: 600; color: var(--accent); background: none; border: 0px; padding: 0px; cursor: pointer;}
+.plan-notes__recheck:disabled {color: var(--muted); cursor: default;}
+.ts {--ts-red: #f07171; --ts-red-text: #f0b4b4; --ts-red-bg: rgba(240, 180, 180, 0.12); --ts-red-border: rgba(240, 180, 180, 0.35); --ts-orange: #ff8a62; --ts-orange-text: #ffc2ad; --ts-orange-bg: rgba(255, 61, 0, 0.14); --ts-orange-border: rgba(255, 177, 153, 0.4); --ts-green: #3dbe7a; --ts-green-text: #b7e4c7; --ts-green-bg: rgba(7, 148, 85, 0.16); --ts-green-border: rgba(143, 217, 180, 0.35); --ts-grey: #8ea0b5; --ts-grey-text: var(--muted, #b5c2d1); --ts-focus: var(--accent, #3c7dff); --ts-tone: var(--ts-grey); --ts-tone-text: var(--ts-grey-text); width: 100%; max-width: 440px; background: var(--bg-raised, #151d28); border: 1px solid var(--line, #2c3b4d); border-radius: 14px; box-shadow: var(--shadow, 0 18px 50px rgba(0, 0, 0, 0.28)); color: var(--text, #e7eef6); font-family: inherit; font-size: 14px; line-height: 1.5;}
+.ts *, .ts ::before, .ts ::after {box-sizing: border-box;}
+.ts p {margin: 0px;}
+.ts__summary {display: flex; align-items: center; gap: 18px; width: 100%; padding: 20px; background: none; border: 0px; border-radius: 16px 16px 0px 0px; color: inherit; font: inherit; text-align: left; cursor: pointer;}
+.ts__summary:hover {background: var(--bg-sink, #101820);}
+.ts__summary:focus-visible {outline: 3px solid var(--ts-focus); outline-offset: -3px;}
+.ts__headline {display: flex; flex-direction: column; gap: 2px; min-width: 0px;}
+.ts__eyebrow {color: var(--muted, #b5c2d1); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase;}
+.ts__band {color: var(--ts-tone-text); font-size: 20px; font-weight: 700; line-height: 1.3;}
+.ts__tagline {color: var(--muted, #b5c2d1);}
+.ts__toggle {display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; color: var(--text, #e7eef6); font-weight: 600;}
+.ts__chevron {transition: transform 0.2s;}
+.ts__footer {display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 14px 20px 18px; border-top: 1px solid var(--line, #2c3b4d);}
+.ts__disclaimer {color: var(--muted, #b5c2d1); font-size: 12px;}
+.tip-anchor {position: relative; display: inline-flex; flex: 0 0 auto;}
+.tip-trigger {display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 0px; background: none; border: 0px; border-radius: 999px; color: var(--muted, #b5c2d1); cursor: pointer;}
+.tip-trigger:hover {background: rgba(231, 238, 246, 0.08); color: var(--text, #e7eef6);}
+.tip-trigger:focus-visible {outline: 3px solid var(--ts-focus);}
+@media (max-width: 380px) {
+.ts__summary {gap: 14px; padding: 16px;}
+}
+@media (prefers-reduced-motion: reduce) {
+.ts *, .ts ::before {transition: none !important;}
+}
+.panel {max-width: none;}
+.panel__summary {padding: 16px 18px 12px;}
+.pillars {margin: 0px; padding: 0px; list-style: none; border: 1px solid var(--bf-line); border-radius: 12px; background: var(--bf-bg);}
+.pillar {padding: 12px 14px;}
+.pillar + .pillar {border-top: 1px solid var(--bf-line);}
+.pillar__head {position: relative; display: flex; align-items: center; gap: 2px;}
+.pillar__head .tip-anchor {position: static;}
+.pillar__head .tip-trigger {width: 24px; height: 24px; margin: -4px 0px;}
+.pillar__name {margin: 0px; color: var(--bf-text); font-size: 15px; font-weight: 600;}
+.pillar__value {margin-left: auto; font-size: 16px; font-weight: 700; font-variant-numeric: tabular-nums; fill: none; stroke: none;}
+.pillar__value small {color: var(--bf-muted); font: 500 11px var(--mono);}
+.pillar__bar {height: 4px; margin: 8px 0px 7px; border-radius: 999px; background: var(--bf-panel); overflow: hidden; fill: none; stroke: none;}
+.pillar__bar span {display: block; height: 100%; width: var(--w); border-radius: inherit; background: currentcolor; transform-origin: left center; animation: pillar-bar 0.9s cubic-bezier(0.2, 0.7, 0.3, 1) var(--d, 0s) both;}
+.pillar__note {margin: 0px; color: var(--bf-muted); font-size: 14px; line-height: 1.45;}
+.pillar__toggle {display: inline-block; margin-top: 6px; padding: 0px; background: none; border: 0px; color: var(--bf-accent); font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; font-size: 14px; font-weight: 600; cursor: pointer;}
+.pillar__toggle:hover {text-decoration: underline;}
+.pillar__toggle:focus-visible {outline: 2px solid var(--bf-accent); outline-offset: 3px; border-radius: 4px;}
+@keyframes pillar-bar { 
+  0% { transform: scaleX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+.pillar__bar span {animation: auto ease 0s 1 normal none running none;}
+}
+.flags__title {margin: 0px 0px 8px; color: var(--bf-muted); font: 500 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;}
+.flags__list {margin: 0px; padding: 0px; list-style: none; display: flex; flex-direction: column; gap: 6px;}
+.flag {--sev: var(--bf-orange); display: flex; gap: 10px; padding: 11px 13px; border-radius: 10px; color: var(--bf-text); font-size: 14px; line-height: 1.45; background: color-mix(in srgb, var(--sev) 9%, transparent); border: 1px solid color-mix(in srgb, var(--sev) 28%, transparent);}
+.flag--critical {--sev: var(--bf-red);}
+.flag__icon {flex: 0 0 auto; color: var(--sev); margin-top: 2px;}
+.flag strong {display: block; color: var(--sev); font-weight: 600;}
+.sonar {--tone: var(--bf-muted); position: relative; width: min(100%, 340px); margin: 4px auto 0px; aspect-ratio: 300 / 250;}
+.sonar--orange {--tone: var(--bf-orange);}
+.sonar__svg {display: block; width: 100%; height: 100%; overflow: visible;}
+.sonar__grid {fill: none; stroke: var(--bf-line); stroke-width: 1;}
+.sonar__grid--dash {stroke-dasharray: 2, 4;}
+.sonar__tick {stroke: var(--bf-line); stroke-width: 1;}
+.sonar__tick--major {stroke: var(--bf-muted); opacity: 0.55;}
+.sonar__track {fill: var(--bf-panel);}
+path.sonar__sector {fill-opacity: 0.16; stroke: none;}
+path.sonar__echo {fill: none; stroke-width: 2.5; stroke-linecap: round;}
+.sonar__blip {stroke: var(--bf-bg); stroke-width: 2; transform-box: fill-box; transform-origin: center center; animation: 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) 0s 1 normal both running sonar-blip;}
+.sonar__sweep {fill: var(--bf-accent); transform-box: view-box; transform-origin: 150px 120px; opacity: 0; animation: 1.3s cubic-bezier(0.45, 0.1, 0.4, 1) 0s 1 normal both running sonar-sweep;}
+.sonar__label {fill: var(--bf-muted); font: 500 10px var(--mono); letter-spacing: 0.08em; text-transform: uppercase;}
+.sonar__label-value {font: 600 12px var(--mono); stroke: none;}
+.sonar__core {fill: var(--bf-bg); stroke: var(--bf-line); stroke-width: 1;}
+.sonar__ring-track {fill: none; stroke: var(--bf-line); stroke-width: 3;}
+.sonar__ring {fill: none; stroke: var(--tone); stroke-width: 3; stroke-linecap: round;}
+.sonar__centre {position: absolute; left: 50%; top: calc(52%); display: flex; flex-direction: column; align-items: center; transform: translate(-50%, -50%); pointer-events: none;}
+.sonar__value {color: var(--tone); font-size: 28px; font-weight: 700; line-height: 1; letter-spacing: -0.03em; font-variant-numeric: tabular-nums;}
+.sonar__max {margin-top: 3px; color: var(--bf-muted); font: 500 10.5px/1 var(--mono);}
+.tone-yellow {fill: var(--bf-yellow); stroke: var(--bf-yellow); color: var(--bf-yellow);}
+.tone-orange {fill: var(--bf-orange); stroke: var(--bf-orange); color: var(--bf-orange);}
+@keyframes sonar-sweep { 
+  0% { opacity: 0; transform: rotate(0deg); }
+  12% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { opacity: 0; transform: rotate(360deg); }
+}
+@keyframes sonar-blip { 
+  0% { opacity: 0; transform: scale(0.2); }
+  100% { opacity: 1; transform: scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+.sonar__sweep {display: none;}
+.sonar__blip {animation: auto ease 0s 1 normal none running none;}
+}
+:host {color-scheme: dark; --bg: #0c1218; --bg-raised: #151d28; --bg-sink: #101820; --line: #2c3b4d; --text: #e7eef6; --muted: #b5c2d1; --accent: #3c7dff; --accent-ink: #ffffff; --accent-soft: rgba(60, 125, 255, 0.16); --danger: #f0b4b4; --shadow: 0 18px 50px rgba(0, 0, 0, 0.28); --serif: "Fraunces", "Iowan Old Style", Palatino, serif; --sans: "Outfit", "Segoe UI", sans-serif; --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; --radius: 14px; color: var(--text); background: var(--bg); font-family: var(--sans); font-size: 17px; line-height: 1.55;}
+* {box-sizing: border-box;}
+@keyframes spin { 
+  100% { transform: rotate(360deg); }
+}
+.result {--bf-bg: #0f1722; --bf-panel: #16202d; --bf-raised: #1a2533; --bf-text: #e8edf3; --bf-muted: #8d9aad; --bf-line: #243142; --bf-accent: #3fb8c4; --bf-green: #3ccf91; --bf-yellow: #f2c14e; --bf-orange: #ff9a52; --bf-red: #ff6b6b; display: flex; flex-direction: column; gap: 0.9rem;}
+:host([data-theme="light"]) .result {--bf-bg: #ffffff; --bf-panel: #f4f6f9; --bf-raised: #ffffff; --bf-text: #0d1b2a; --bf-muted: #5a6879; --bf-line: #e2e7ee; --bf-accent: #157a85; --bf-green: #12805c; --bf-yellow: #a06a00; --bf-orange: #c2410c; --bf-red: #c0262d;}
+.result__split {display: grid; grid-template-columns: minmax(280px, 1fr) minmax(280px, 420px); gap: 1rem; align-items: start;}
+.result__visual {display: flex; flex-direction: column; gap: 0.4rem; padding: 18px; background: var(--bf-bg); border: 1px solid var(--bf-line); border-radius: 16px;}
+.result__side {display: flex; flex-direction: column; gap: 1rem;}
+.result .ts.panel {background: var(--bf-bg); border-color: var(--bf-line); border-radius: 16px;}
+.result .ts .ts__band {font-family: var(--sans); font-size: 17px;}
+.risk {display: flex; justify-content: center; margin: 0px 0px 0.6rem;}
+.risk__pill {display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px; font-size: 14px; font-weight: 600; fill: none; stroke: none; background: color-mix(in srgb, currentcolor 12%, transparent 88%); border: 1px solid color-mix(in srgb, currentcolor 30%, transparent 70%);}
+@media (max-width: 760px) {
+.result__split {grid-template-columns: 1fr;}
+.result__visual {padding: 14px;}
+}
+.token p {margin: 0px;}
+.token__name {display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; font-family: var(--sans); font-size: clamp(1.5rem, 2.6vw, 1.9rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; overflow-wrap: anywhere;}
+.token__symbol, .token__chain {padding: 4px 8px; border: 1px solid var(--bf-line); border-radius: 6px; background: var(--bf-panel); color: var(--bf-muted); font: 500 0.78rem/1 var(--mono); letter-spacing: 0.02em;}
+.token__contract {display: flex; align-items: center; gap: 0.6rem; max-width: 40rem; margin-top: 0.8rem; padding: 8px 8px 8px 12px; border: 1px solid var(--bf-line); border-radius: 10px; background: var(--bf-panel);}
+.token__contract-label {flex: 0 0 auto; color: var(--bf-muted); font: 500 0.7rem/1 var(--mono); letter-spacing: 0.06em; text-transform: uppercase;}
+.token__address {flex: 1 1 0%; min-width: 0px; color: var(--bf-text); font: 0.86rem/1.4 var(--mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.token__copy {flex: 0 0 auto; padding: 0.25rem 0.7rem; background: var(--bf-bg); border: 1px solid var(--bf-line); border-radius: 7px; color: var(--bf-text); font-style: inherit; font-variant: inherit; font-stretch: inherit; line-height: inherit; font-family: inherit; font-optical-sizing: inherit; font-size-adjust: inherit; font-kerning: inherit; font-feature-settings: inherit; font-variation-settings: inherit; font-language-override: inherit; font-size: 0.8rem; font-weight: 600; cursor: pointer;}
+.token__copy:hover {border-color: var(--bf-muted);}
+.token__copy:focus-visible {outline: 2px solid var(--bf-accent); outline-offset: 2px;}
+:host([data-theme="light"]) {color-scheme: light; --bg: #f4f1ea; --bg-raised: #fffdf8; --bg-sink: #ebe6dc; --line: #d9d1c4; --text: #1b2430; --muted: #3d4b5c; --accent: #1d4fbf; --accent-ink: #ffffff; --accent-soft: rgba(29, 79, 191, 0.1); --danger: #8a3030; --shadow: 0 16px 40px rgba(40, 32, 20, 0.08); color: var(--text); background: var(--bg);}
+:host { display: block; font-size: 15px; background: none; }
+.result__split { grid-template-columns: 1fr; }
+.result__visual { padding: 14px; }
+/* Site "Replay scan": hide the readings while the scan runs, then grow them back */
+.sonar__sector, .sonar__echo, .sonar__blip { transform-box: view-box; transform-origin: 150px 120px; transition: transform .9s cubic-bezier(.2,.9,.3,1.15), opacity .4s ease; }
+.sonar__ring { transition: opacity .6s ease; }
+:host(.scanning) :is(.sonar__sector, .sonar__echo, .sonar__blip) { transform: scale(0); opacity: 0; transition: none; }
+:host(.scanning) .sonar__ring { opacity: 0; transition: none; }
+.scan-item { transition: opacity .45s ease, transform .45s ease; }
+.scan-item.pending { opacity: .18; transform: translateY(4px); transition: none; }
+</style><div aria-hidden="true"><div class="result"><div class="token"><p class="token__name">Tide<span class="token__symbol">TIDE</span><span class="token__chain">Solana</span></p><p class="token__contract"><span class="token__contract-label">Contract address</span><span class="token__address">Tide7xQk3vN9pWm2hR5sLc8YbJf4uDgE1aKoZt6PqHnM</span><button type="button" class="token__copy" tabindex="-1">Copy</button></p></div><div class="plan-notes scan-item"><div class="plan-notes__row"><p><strong>Pro scan.</strong> Security checked now. Community checked now.</p><button type="button" class="plan-notes__recheck" tabindex="-1">Re-check</button></div></div><div class="result__split"><div class="result__visual"><div class="sonar sonar--orange"><svg class="sonar__svg" viewBox="0 -10 300 250" role="img" aria-label="Overall 54 out of 100. Security 72, Community 41, Foundation 50."><g aria-hidden="true"><circle class="sonar__grid sonar__grid--dash" cx="150" cy="120" r="53"></circle><circle class="sonar__grid sonar__grid--dash" cx="150" cy="120" r="66"></circle><circle class="sonar__grid sonar__grid--dash" cx="150" cy="120" r="79"></circle><circle class="sonar__grid" cx="150" cy="120" r="92"></circle><line class="sonar__tick sonar__tick--major" x1="150" y1="25" x2="150" y2="19"></line><line class="sonar__tick" x1="166.49657687835838" y1="26.44326346384024" x2="167.01752141135918" y2="23.48884020480361"></line><line class="sonar__tick" x1="182.49191361593853" y1="30.72920102533871" x2="183.51797404591554" y2="27.91012316298098"></line><line class="sonar__tick sonar__tick--major" x1="197.5" y1="37.727586640478336" x2="200.5" y2="32.531434217771704"></line><line class="sonar__tick" x1="211.06482292022125" y1="47.22577790369709" x2="212.99318574928085" y2="44.92764457434015"></line><line class="sonar__tick" x1="222.7742220963029" y1="58.93517707977877" x2="225.07235542565985" y2="57.00681425071915"></line><line class="sonar__tick sonar__tick--major" x1="232.2724133595217" y1="72.5" x2="237.46856578222832" y2="69.5"></line><line class="sonar__tick" x1="239.27079897466132" y1="87.50808638406147" x2="242.089876837019" y2="86.48202595408446"></line><line class="sonar__tick" x1="243.55673653615975" y1="103.50342312164162" x2="246.5111597951964" y2="102.98247858864083"></line><line class="sonar__tick sonar__tick--major" x1="245" y1="120" x2="251" y2="120"></line><line class="sonar__tick" x1="243.55673653615975" y1="136.49657687835838" x2="246.5111597951964" y2="137.01752141135918"></line><line class="sonar__tick" x1="239.27079897466132" y1="152.49191361593853" x2="242.089876837019" y2="153.51797404591554"></line><line class="sonar__tick sonar__tick--major" x1="232.2724133595217" y1="167.5" x2="237.46856578222832" y2="170.5"></line><line class="sonar__tick" x1="222.7742220963029" y1="181.06482292022122" x2="225.07235542565985" y2="182.99318574928085"></line><line class="sonar__tick" x1="211.06482292022125" y1="192.7742220963029" x2="212.99318574928085" y2="195.07235542565985"></line><line class="sonar__tick sonar__tick--major" x1="197.5" y1="202.27241335952166" x2="200.5" y2="207.4685657822283"></line><line class="sonar__tick" x1="182.49191361593853" y1="209.2707989746613" x2="183.51797404591554" y2="212.089876837019"></line><line class="sonar__tick" x1="166.49657687835838" y1="213.55673653615975" x2="167.01752141135918" y2="216.5111597951964"></line><line class="sonar__tick sonar__tick--major" x1="150" y1="215" x2="150" y2="221"></line><line class="sonar__tick" x1="133.50342312164162" y1="213.55673653615975" x2="132.98247858864084" y2="216.5111597951964"></line><line class="sonar__tick" x1="117.50808638406147" y1="209.27079897466132" x2="116.48202595408446" y2="212.089876837019"></line><line class="sonar__tick sonar__tick--major" x1="102.50000000000003" y1="202.2724133595217" x2="99.50000000000003" y2="207.46856578222832"></line><line class="sonar__tick" x1="88.93517707977875" y1="192.7742220963029" x2="87.00681425071915" y2="195.07235542565985"></line><line class="sonar__tick" x1="77.2257779036971" y1="181.06482292022125" x2="74.92764457434016" y2="182.99318574928088"></line><line class="sonar__tick sonar__tick--major" x1="67.72758664047832" y1="167.5" x2="62.53143421777169" y2="170.5"></line><line class="sonar__tick" x1="60.72920102533871" y1="152.49191361593853" x2="57.91012316298098" y2="153.51797404591554"></line><line class="sonar__tick" x1="56.44326346384024" y1="136.49657687835838" x2="53.48884020480361" y2="137.01752141135916"></line><line class="sonar__tick sonar__tick--major" x1="55" y1="120.00000000000001" x2="49" y2="120.00000000000001"></line><line class="sonar__tick" x1="56.44326346384024" y1="103.5034231216416" x2="53.48884020480361" y2="102.98247858864082"></line><line class="sonar__tick" x1="60.729201025338696" y1="87.50808638406147" x2="57.91012316298098" y2="86.48202595408446"></line><line class="sonar__tick sonar__tick--major" x1="67.72758664047834" y1="72.5" x2="62.531434217771704" y2="69.49999999999999"></line><line class="sonar__tick" x1="77.2257779036971" y1="58.93517707977877" x2="74.92764457434015" y2="57.00681425071915"></line><line class="sonar__tick" x1="88.93517707977875" y1="47.22577790369709" x2="87.00681425071913" y2="44.927644574340164"></line><line class="sonar__tick sonar__tick--major" x1="102.49999999999996" y1="37.72758664047835" x2="99.49999999999996" y2="32.53143421777172"></line><line class="sonar__tick" x1="117.50808638406141" y1="30.729201025338725" x2="116.4820259540844" y2="27.910123162980994"></line><line class="sonar__tick" x1="133.50342312164162" y1="26.44326346384024" x2="132.98247858864082" y2="23.48884020480361"></line><line class="sonar__grid" x1="181.1769145362398" y1="102" x2="229.67433714816838" y2="74"></line><line class="sonar__grid" x1="150" y1="156" x2="150" y2="212"></line><line class="sonar__grid" x1="118.82308546376021" y1="102" x2="70.32566285183165" y2="74"></line></g><g><title>Security: 72 / 100</title><path class="sonar__track" d="M116.3 98.5 L72.4 70.6 A92 92 0 0 1 227.6 70.6 L183.7 98.5 A40 40 0 0 0 116.3 98.5Z"></path><path class="sonar__sector tone-yellow" d="M122.7 90.8 L97.1 63.4 A77.44 77.44 0 0 1 202.9 63.4 L177.3 90.8 A40 40 0 0 0 122.7 90.8Z" data-a="0" data-f="0.72"></path><path class="sonar__echo tone-yellow" d="M97.1 63.4 A77.44 77.44 0 0 1 202.9 63.4"></path><circle class="sonar__blip tone-yellow" cx="150" cy="42.56" r="4" style="animation-delay: 0.72s;"></circle><text class="sonar__label" x="150" y="12" text-anchor="middle">Security<tspan class="sonar__label-value tone-yellow" dx="6" data-v="72">72</tspan></text></g><g><title>Community: 41 / 100</title><path class="sonar__track" d="M185.5 101.5 L231.6 77.5 A92 92 0 0 1 154.0 211.9 L151.7 160.0 A40 40 0 0 0 185.5 101.5Z"></path><path class="sonar__sector tone-orange" d="M189.9 122.0 L211.2 123.1 A61.32 61.32 0 0 1 183.3 171.5 L171.7 153.6 A40 40 0 0 0 189.9 122.0Z" data-a="120" data-f="0.41"></path><path class="sonar__echo tone-orange" d="M211.2 123.1 A61.32 61.32 0 0 1 183.3 171.5"></path><circle class="sonar__blip tone-orange" cx="203.10467776006178" cy="150.66" r="4" style="animation-delay: 0.87s;"></circle><text class="sonar__label" x="234" y="232" text-anchor="middle">Community<tspan class="sonar__label-value tone-orange" dx="6" data-v="41">41</tspan></text></g><g><title>Foundation: 50 / 100</title><path class="sonar__track" d="M148.3 160.0 L146.0 211.9 A92 92 0 0 1 68.4 77.5 L114.5 101.5 A40 40 0 0 0 148.3 160.0Z"></path><path class="sonar__sector tone-orange" d="M131.1 155.2 L118.8 178.1 A66 66 0 0 1 84.0 118.0 L110.0 118.8 A40 40 0 0 0 131.1 155.2Z" data-a="240" data-f="0.5"></path><path class="sonar__echo tone-orange" d="M118.8 178.1 A66 66 0 0 1 84.0 118.0"></path><circle class="sonar__blip tone-orange" cx="92.84232335022705" cy="153" r="4" style="animation-delay: 1.02s;"></circle><text class="sonar__label" x="66" y="232" text-anchor="middle">Foundation<tspan class="sonar__label-value tone-orange" dx="6" data-v="50">50</tspan></text></g><g class="sonar__sweep" aria-hidden="true"><path d="M147.6 86.1 L143.6 28.2 A92 92 0 0 1 150.0 28.0 L150.0 86.0 A34 34 0 0 0 147.6 86.1Z" fill-opacity="0.320"></path><path d="M145.3 86.3 L137.2 28.9 A92 92 0 0 1 143.6 28.2 L147.6 86.1 A34 34 0 0 0 145.3 86.3Z" fill-opacity="0.288"></path><path d="M142.9 86.7 L130.9 30.0 A92 92 0 0 1 137.2 28.9 L145.3 86.3 A34 34 0 0 0 142.9 86.7Z" fill-opacity="0.256"></path><path d="M140.6 87.3 L124.6 31.6 A92 92 0 0 1 130.9 30.0 L142.9 86.7 A34 34 0 0 0 140.6 87.3Z" fill-opacity="0.224"></path><path d="M138.4 88.1 L118.5 33.5 A92 92 0 0 1 124.6 31.6 L140.6 87.3 A34 34 0 0 0 138.4 88.1Z" fill-opacity="0.192"></path><path d="M136.2 88.9 L112.6 36.0 A92 92 0 0 1 118.5 33.5 L138.4 88.1 A34 34 0 0 0 136.2 88.9Z" fill-opacity="0.160"></path><path d="M134.0 90.0 L106.8 38.8 A92 92 0 0 1 112.6 36.0 L136.2 88.9 A34 34 0 0 0 134.0 90.0Z" fill-opacity="0.128"></path><path d="M132.0 91.2 L101.2 42.0 A92 92 0 0 1 106.8 38.8 L134.0 90.0 A34 34 0 0 0 132.0 91.2Z" fill-opacity="0.096"></path><path d="M130.0 92.5 L95.9 45.6 A92 92 0 0 1 101.2 42.0 L132.0 91.2 A34 34 0 0 0 130.0 92.5Z" fill-opacity="0.064"></path><path d="M128.1 94.0 L90.9 49.5 A92 92 0 0 1 95.9 45.6 L130.0 92.5 A34 34 0 0 0 128.1 94.0Z" fill-opacity="0.032"></path></g><circle class="sonar__core" cx="150" cy="120" r="38"></circle><circle class="sonar__ring-track" cx="150" cy="120" r="34"></circle><circle class="sonar__ring" cx="150" cy="120" r="34" transform="rotate(-90 150 120)" stroke-dasharray="213.6" stroke-dashoffset="98.3"></circle></svg><div class="sonar__centre" aria-hidden="true"><span class="sonar__value">54</span><span class="sonar__max">/ 100</span></div></div><p class="risk scan-item"><span class="risk__pill tone-orange">Medium risk</span></p><ul class="pillars" aria-label="The three scores, in plain English"><li class="pillar scan-item"><div class="pillar__head"><h3 class="pillar__name">Security</h3><span class="tip-anchor"><button type="button" class="tip-trigger" aria-label="More about: Security" tabindex="-1"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle><path d="M10 9v4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><circle cx="10" cy="6.3" r="1.05" fill="currentColor"></circle></svg></button></span><span class="pillar__value tone-yellow" data-v="72">72<small> /100</small></span></div><div class="pillar__bar tone-yellow" aria-hidden="true"><span style="--w: 72%; --d: 0s;"></span></div><p class="pillar__note">Security looks mostly fine; holders are a bit concentrated.</p></li><li class="pillar scan-item"><div class="pillar__head"><h3 class="pillar__name">Community</h3><span class="tip-anchor"><button type="button" class="tip-trigger" aria-label="More about: Community" tabindex="-1"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle><path d="M10 9v4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><circle cx="10" cy="6.3" r="1.05" fill="currentColor"></circle></svg></button></span><span class="pillar__value tone-orange" data-v="41">41<small> /100</small></span></div><div class="pillar__bar tone-orange" aria-hidden="true"><span style="--w: 41%; --d: 0.15s;"></span></div><p class="pillar__note">A small but real following.</p><button type="button" class="pillar__toggle" aria-expanded="false" tabindex="-1">See the details</button></li><li class="pillar scan-item"><div class="pillar__head"><h3 class="pillar__name">Foundation</h3><span class="tip-anchor"><button type="button" class="tip-trigger" aria-label="More about: Foundation" tabindex="-1"><svg width="18" height="18" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="8.25" fill="none" stroke="currentColor" stroke-width="1.5"></circle><path d="M10 9v4.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"></path><circle cx="10" cy="6.3" r="1.05" fill="currentColor"></circle></svg></button></span><span class="pillar__value tone-orange" data-v="50">50<small> /100</small></span></div><div class="pillar__bar tone-orange" aria-hidden="true"><span style="--w: 50%; --d: 0.3s;"></span></div><p class="pillar__note">Young project with docs.</p><button type="button" class="pillar__toggle" aria-expanded="false" tabindex="-1">See the details</button></li></ul></div><div class="result__side"><section class="flags" aria-label="Flags"><h3 class="flags__title">Flags</h3><ul class="flags__list"><li class="flag flag--critical scan-item"><span class="flag__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"></path><path d="M12 9v4M12 17h.01"></path></svg></span><span><strong>Top holders own a lot</strong>The top 10 wallets hold 41% of supply.</span></li><li class="flag flag--warning scan-item"><span class="flag__icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"></path><path d="M12 9v4M12 17h.01"></path></svg></span><span><strong>Owner not renounced</strong>The creator can still change some settings.</span></li></ul></section><section class="ts panel scan-item" aria-label="Score details"><button type="button" class="ts__summary panel__summary" aria-expanded="false" tabindex="-1"><span class="ts__headline"><span class="ts__eyebrow">Security</span><span class="ts__band">What we found</span><span class="ts__tagline">Warning signs first, then the checks that looked fine.</span><span class="ts__toggle">2 warnings<svg class="ts__chevron" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 6l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span></button><footer class="ts__footer"><p class="ts__disclaimer">This is a guide, not a guarantee. Automated checks cannot catch every risk. This site is not financial advice — do your own research.</p></footer></section></div></div></div></div></template></div>
         <p class="caption">Example layout with made-up numbers, not a live result. A confirmed block on selling scores the whole token 0.</p>
       </div>
     </div>
@@ -1206,9 +1997,14 @@
   lucide.createIcons();
   const root = document.documentElement;
   const themeBtn = document.getElementById('theme');
+  // The product mockups draw in their own shadow roots (real extension and scanner styles); keep their theme in step.
+  const mocks = [...document.querySelectorAll('.mock-ext, .mock-scan')];
+  const syncMocks = () => mocks.forEach((m) => { m.dataset.theme = root.dataset.theme; });
+  syncMocks();
   themeBtn.addEventListener('click', () => {
     const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
     root.dataset.theme = next;
+    syncMocks();
     themeBtn.setAttribute('aria-label', next === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
   });
 
@@ -1321,10 +2117,13 @@
     const board = document.querySelector('#read .board');
     if (!board) return;
     const status = board.querySelector('.scan-status');
-    const score = board.querySelector('.score-num');
+    const mock = board.querySelector('.mock-scan');
+    const view = mock.shadowRoot || mock;
+    const score = view.querySelector('.sonar__value');
     const replay = board.querySelector('.scan-replay');
-    const items = [...board.querySelectorAll('.scan-item')];
-    const values = [...board.querySelectorAll('.bf__score-value[data-v]')];
+    const items = [...view.querySelectorAll('.scan-item')];
+    const values = [...view.querySelectorAll('[data-v]')];
+    const setValue = (v, text) => { if (v.firstChild) v.firstChild.nodeValue = text; };
     const doneText = status.textContent;
     const steps = ['Reading the contract', 'Test-selling and checking fees', 'Looking at holders and liquidity', 'Reading X for the community score', 'Checking age, docs and listings'];
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1337,9 +2136,10 @@
       replay.disabled = true;
       board.classList.remove('scan-go', 'scan-done');
       board.classList.add('scan-run');
+      mock.classList.add('scanning');
       score.textContent = '--';
       items.forEach((item) => item.classList.add('pending'));
-      values.forEach((v) => { v.textContent = '–'; });
+      values.forEach((v) => setValue(v, '–'));
       status.textContent = steps[0] + '…';
       void board.offsetWidth;
       board.classList.add('scan-go');
@@ -1348,6 +2148,7 @@
 
       later(() => {
         board.classList.add('scan-done');
+        mock.classList.remove('scanning');
         const start = performance.now();
         const tick = (now) => {
           const t = Math.min(1, (now - start) / 900);
@@ -1355,7 +2156,7 @@
           if (t < 1) requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
-        values.forEach((v, i) => later(() => { v.textContent = v.dataset.v; }, 250 + i * 120));
+        values.forEach((v, i) => later(() => setValue(v, v.dataset.v), 250 + (i % 3) * 120));
         items.forEach((item, i) => later(() => item.classList.remove('pending'), 200 + i * 110));
         later(() => {
           status.textContent = doneText;
