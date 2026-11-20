@@ -4,6 +4,9 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Blockfisher — spot the phish before you bite</title>
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="img/favicon-32.png" type="image/png" sizes="32x32" />
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
 <meta name="description" content="Blockfisher checks crypto tokens in plain English on the page where you buy, and a real person follows the trail when funds have moved." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -185,7 +188,6 @@
   .wave canvas, .wave img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; pointer-events: none; }
   .wave img { object-fit: contain; }
   .wave.live img, .wave:not(.live) canvas { visibility: hidden; }
-  [data-theme="light"] .hero-art { margin-right: 0; }
   .hero-glow { position: absolute; right: -10%; top: 10%; width: 60vw; height: 60vw; max-width: 760px; max-height: 760px; background: radial-gradient(circle, rgba(255,106,43,.16), transparent 60%); pointer-events: none; }
 
   /* Hero entrance: the wave rolls in and breaks, flinging the highlighted words out of its spray into place */
@@ -510,7 +512,6 @@
   @media (max-width: 880px) {
     .hero-grid, .promo, .read, .invest, .sec-head, .foot { grid-template-columns: 1fr; }
     .hero-art { order: -1; margin: -20px calc(var(--gutter) * -1) 0 20%; }
-    [data-theme="light"] .hero-art { margin: 0 0 0 15%; }
     .hero { padding-top: 24px; }
     .grid-3 { grid-template-columns: 1fr; }
     .invest .copy { position: static; }
