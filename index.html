@@ -2030,16 +2030,16 @@ path.sonar__echo {fill: none; stroke-width: 2.5; stroke-linecap: round;}
   const form = document.querySelector('form.book');
   const status = form.querySelector('.form-status');
   const sendBtn = form.querySelector('button[type="submit"]');
-  /* Investigation reference, e.g. BF-261123-K7Q4MX: UTC date plus six random
-     characters (no 0/O, 1/I/L). Made in the browser, so references are unique
-     in practice but not sequential. One reference is kept for a booking until
-     it is sent, so a retry after a failed send reuses it. */
-  const REF_CHARS = '23456789ABCDEFGHJKMNPQRSTUVWXYZ';
-  const newRef = () => {
-    const d = new Date();
-    const date = String(d.getUTCFullYear()).slice(2) + String(d.getUTCMonth() + 1).padStart(2, '0') + String(d.getUTCDate()).padStart(2, '0');
-    const bytes = crypto.getRandomValues(new Uint8Array(6));
-    return 'BF-' + date + '-' + [...bytes].map((b) => REF_CHARS[b % REF_CHARS.length]).join('');
+  /* Investigation reference, e.g. BF-261123-K7Q4MX. The scanner server issues each one
+     from its database under a unique constraint, so no two bookings can share one. A
+     reference is kept until its booking is sent, so a retry after a failed send reuses it.
+     The server can take up to a minute to wake, hence the long timeout. */
+  const REF_URL = 'https://blockfisher-token-scanner-v2.onrender.com/api/investigation-ref';
+  const fetchRef = async () => {
+    const res = await fetch(REF_URL, { method: 'POST', signal: AbortSignal.timeout(75000) });
+    const body = await res.json().catch(() => null);
+    if (!res.ok || !body || body.ok !== true || typeof body.ref !== 'string') throw new Error('no reference');
+    return body.ref;
   };
   let bookingRef = null;
   const notSent = (why) => {
@@ -2068,7 +2068,19 @@ path.sonar__echo {fill: none; stroke-width: 2.5; stroke-linecap: round;}
     }
     const scope = [...form.querySelectorAll('input[name="scope"]:checked')].map((el) => SCOPE_LABELS[el.value] || el.value);
     const name = form.name.value.trim();
-    if (!bookingRef) bookingRef = newRef();
+    sending = true;
+    sendBtn.disabled = true;
+    if (!bookingRef) {
+      status.textContent = 'Getting your reference number…';
+      try {
+        bookingRef = await fetchRef();
+      } catch (err) {
+        sending = false;
+        sendBtn.disabled = false;
+        notSent('We could not create a reference number just now.');
+        return;
+      }
+    }
     const ref = bookingRef;
     const payload = {
       access_key: BOOKING_ACCESS_KEY,
@@ -2083,8 +2095,6 @@ path.sonar__echo {fill: none; stroke-width: 2.5; stroke-linecap: round;}
       'Understands no guaranteed results': 'Yes',
       botcheck: form.botcheck.checked,
     };
-    sending = true;
-    sendBtn.disabled = true;
     status.textContent = 'Sending…';
     try {
       const res = await fetch('https://api.web3forms.com/submit', {
