@@ -2030,11 +2030,23 @@ path.sonar__echo {fill: none; stroke-width: 2.5; stroke-linecap: round;}
   const form = document.querySelector('form.book');
   const status = form.querySelector('.form-status');
   const sendBtn = form.querySelector('button[type="submit"]');
+  /* Investigation reference, e.g. BF-261123-K7Q4MX: UTC date plus six random
+     characters (no 0/O, 1/I/L). Made in the browser, so references are unique
+     in practice but not sequential. One reference is kept for a booking until
+     it is sent, so a retry after a failed send reuses it. */
+  const REF_CHARS = '23456789ABCDEFGHJKMNPQRSTUVWXYZ';
+  const newRef = () => {
+    const d = new Date();
+    const date = String(d.getUTCFullYear()).slice(2) + String(d.getUTCMonth() + 1).padStart(2, '0') + String(d.getUTCDate()).padStart(2, '0');
+    const bytes = crypto.getRandomValues(new Uint8Array(6));
+    return 'BF-' + date + '-' + [...bytes].map((b) => REF_CHARS[b % REF_CHARS.length]).join('');
+  };
+  let bookingRef = null;
   const notSent = (why) => {
     status.textContent = '';
     status.append(why + ' Your request was not sent. Please email ');
     const a = document.createElement('a');
-    a.href = 'mailto:' + SUPPORT_EMAIL + '?subject=' + encodeURIComponent('Investigation request');
+    a.href = 'mailto:' + SUPPORT_EMAIL + '?subject=' + encodeURIComponent('Investigation request' + (bookingRef ? ' ' + bookingRef : ''));
     a.textContent = SUPPORT_EMAIL;
     status.append(a, ' instead. What you typed is still in the form.');
   };
@@ -2056,10 +2068,13 @@ path.sonar__echo {fill: none; stroke-width: 2.5; stroke-linecap: round;}
     }
     const scope = [...form.querySelectorAll('input[name="scope"]:checked')].map((el) => SCOPE_LABELS[el.value] || el.value);
     const name = form.name.value.trim();
+    if (!bookingRef) bookingRef = newRef();
+    const ref = bookingRef;
     const payload = {
       access_key: BOOKING_ACCESS_KEY,
-      subject: 'Investigation request from ' + name,
+      subject: 'Investigation request ' + ref + ' from ' + name,
       from_name: 'Blockfisher website',
+      'Reference number': ref,
       name,
       email: form.email.value.trim(),
       'What happened': form.what.value.trim() || '(left blank)',
@@ -2079,7 +2094,11 @@ path.sonar__echo {fill: none; stroke-width: 2.5; stroke-linecap: round;}
       });
       const body = await res.json().catch(() => null);
       if (!res.ok || !body || body.success !== true) throw new Error('send failed');
-      status.textContent = 'Thanks. Your request has been sent. A person will reply with a quote before any work starts.';
+      status.textContent = '';
+      const strong = document.createElement('strong');
+      strong.textContent = ref;
+      status.append('Thanks. Your request has been sent. Your reference number is ', strong, '. Please keep it and quote it if you email us. A person will reply with a quote before any work starts.');
+      bookingRef = null;
       form.reset();
     } catch (err) {
       notSent('Something went wrong.');
