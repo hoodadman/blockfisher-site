@@ -193,7 +193,7 @@
       }
       error.hidden = true;
       var card = form.parentElement;
-      card.innerHTML = '<h3>Request noted on this page only</h3><p class="success">Nothing was sent. When investigations are open, this form is the only place that booking lives: your name, what happened, and which parts of the case you ticked. Every investigation is quoted per request, starting from $500.</p>';
+      card.innerHTML = '<h3>Request noted on this page only</h3><p class="success">Nothing was sent. When investigations are open, this form is the only place that booking lives: your name, what happened, and which parts of the case you ticked. Every investigation is quoted per request, starting from $100.</p>';
     });
   }
 })();
