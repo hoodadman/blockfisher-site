@@ -983,3 +983,7 @@ dialog menu { display: flex; justify-content: flex-end; gap: 0.4rem; margin: 0.8
   .card, .sale-row a, .dropdown-panel a { transition: none; }
   .card:hover, .card:focus-within, .sale-row a:hover, .sale-row a:focus-visible { transform: none; }
 }
+
+/* Company details line (trading disclosure) */
+.fine.company { flex-basis: 100%; max-width: none; font-size: 0.85rem; margin: 0; }
+.fine.company a { color: inherit; }
